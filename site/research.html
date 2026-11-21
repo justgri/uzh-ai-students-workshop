@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Verify one result, refine the method, then automate a checked workflow.">
+    <title>Research · Agentic AI workshop · UZH.ai</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">UZH.ai <span>Student workshop</span></a>
+        <nav aria-label="Workshop pages">
+          <a href="../index.html">Intro</a>
+          <a href="./tech.html">Tech</a>
+          <a href="./basics.html">Basics</a>
+          <a href="./planner.html">Planner</a>
+          <a href="./research.html" aria-current="page">Research</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <header class="page-header">
+        <h1>Research</h1>
+        <p class="lead">Verify one result, refine the method, then automate a checked workflow.</p>
+      </header>
+      <ol class="steps">
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-1-title">Define the research task</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-1" aria-label="Copy define the research task prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="research-prompt-1" aria-labelledby="research-prompt-1-title" rows="8" readonly spellcheck="false">Write docs/PRD.md: a short product requirements document for finding
+[PAPERS_POTENTIAL_CLIENTS_OR_ITEMS] matching [CRITERIA].
+Use only [APPROVED_PUBLIC_SOURCES_OR_SYNTHETIC_DATASET].
+
+Define the goal, exclusions, success criteria, time/usage budget, and an
+output schema: item ID, title/name, source URL, supporting evidence,
+criteria assessment, uncertainty, and review status.
+Propose inputs/, results/, reviews/, and WORKLOG.md. Do not contact anyone.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-2-title">Prove one case</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-2" aria-label="Copy prove one case prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="research-prompt-2" aria-labelledby="research-prompt-2-title" rows="8" readonly spellcheck="false">Apply [PRD_PATH] to exactly one case: [CASE_ID].
+Return the agreed fields and source links supporting each factual claim.
+Mark unsupported claims unknown rather than guessing.
+
+Show where I should check the claims against the original sources.
+Save the result and stop for my manual verification before doing more.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-3-title">Review five results</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-3" aria-label="Copy review five results prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="research-prompt-3" aria-labelledby="research-prompt-3-title" rows="8" readonly spellcheck="false">Apply [ONE_CASE_FEEDBACK] to five cases from [FIXED_INPUT_SET].
+Present all five outputs with their supporting sources for review.
+Keep factual errors separate from style and preference feedback.
+
+Record [MY_CORRECTIONS] and the recurring failure patterns. Update the
+procedure, then recheck the affected outputs. Do not treat unreviewed
+results as successful or increase the batch size yet.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-4-title">Compare a twenty-case pilot</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-4" aria-label="Copy compare a twenty-case pilot prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="research-prompt-4" aria-labelledby="research-prompt-4-title" rows="8" readonly spellcheck="false">Freeze [PRD_VERSION], [PROMPT_VERSION], and [TWENTY_CASE_INPUT_SET].
+Benchmark 20 cases against [MANUALLY_CHECKED_REFERENCE]. Compare
+[SUPPORTED_REASONING_SETTINGS] on the same model, inputs, prompt,
+output schema, reference, and checks.
+
+Report factual accuracy, missing evidence, schema failures, elapsed time,
+and available usage/cost measures separately from style preferences.
+Record versions and commands. Mark unavailable measurements or unsupported
+settings explicitly; do not invent results.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-5-title">Validate a reusable skill</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-5" aria-label="Copy validate a reusable skill prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="research-prompt-5" aria-labelledby="research-prompt-5-title" rows="8" readonly spellcheck="false">After [REVIEWED_PILOT_AND_SETTING_COMPARISON] meets the agreed criteria,
+package the procedure as [RESEARCH_SKILL_NAME] for
+[CHOSEN_HARNESS], using its supported skill folder and SKILL.md format.
+Include source rules, output schema, factual checks, preference rules,
+review checkpoints, and stop conditions.
+
+Apply [REVIEWED_USER_CORRECTIONS] to the preferences without weakening
+factual checks. Test on [HELD_OUT_CASES] and show the evidence for human
+review. Keep the skill draft until [ACCEPTANCE_CRITERIA] are met.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-6-title">Automate a bounded loop (optional)</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-6" aria-label="Copy automate a bounded loop (optional) prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="research-prompt-6" aria-labelledby="research-prompt-6-title" rows="8" readonly spellcheck="false">Build a local runner for [VALIDATED_SKILL] and dry-run it on synthetic data.
+Process batches of [BATCH_SIZE]. Keep a ledger of IDs, URLs, attempts,
+status, and review decisions; checkpoint after each batch.
+
+Deduplicate by [DEDUP_KEY]. Retry at most [RETRY_LIMIT]. Stop at
+[ITEM_BUDGET], [TIME_BUDGET], [USAGE_BUDGET], or [ERROR_THRESHOLD].
+Require human review before the next batch. Demonstrate stopping and
+resuming. Propose recurring execution, but do not enable a scheduler,
+access new sources, or contact anyone without explicit authorization.</textarea>
+        </li>
+      </ol>
+      <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>UZH.ai Students Association · Agentic AI workshop</p>
+      </div>
+    </footer>
+  </body>
+</html>

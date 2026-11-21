@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Keep projects, next actions, and reusable workflows in a small Markdown repository.">
+    <title>Planner · Agentic AI workshop · UZH.ai</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">UZH.ai <span>Student workshop</span></a>
+        <nav aria-label="Workshop pages">
+          <a href="../index.html">Intro</a>
+          <a href="./tech.html">Tech</a>
+          <a href="./basics.html">Basics</a>
+          <a href="./planner.html" aria-current="page">Planner</a>
+          <a href="./research.html">Research</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <header class="page-header">
+        <h1>Planner</h1>
+        <p class="lead">Keep projects, next actions, and reusable workflows in a small Markdown repository.</p>
+      </header>
+      <pre class="folder-tree"><code>planner/
+├── README.md
+├── AGENTS.md
+├── WORKLOG.md
+├── projects/
+│   ├── README.md             # Project index
+│   └── study-demo/
+│       ├── project.md
+│       ├── tasks.md
+│       └── notes.md
+├── inbox/
+├── reviews/
+├── docs/
+└── .agent-work/              # Ignored local working files</code></pre>
+      <p class="inline-note">Synthetic example. Use the instruction and skill locations supported by your harness.</p>
+      <ol class="steps">
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="planner-prompt-1-title">Pick three example projects</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-1" aria-label="Copy pick three example projects prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="8" readonly spellcheck="false">Design a small planning repo for [FICTIONAL_PERSON_OR_TEAM].
+Use these three synthetic projects: [PROJECT_ONE], [PROJECT_TWO],
+and [PROJECT_THREE]. Goals: [PLANNING_NEEDS].
+
+Propose how to capture notes, find project status, and choose a next action.
+Use invented tasks and dates. Do not import personal repositories,
+private records, or calendars.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="planner-prompt-2-title">Create the project index</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-2" aria-label="Copy create the project index prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="planner-prompt-2" aria-labelledby="planner-prompt-2-title" rows="8" readonly spellcheck="false">Create [PLANNER_REPO] with README.md, WORKLOG.md, the instruction file
+loaded by [CHOSEN_HARNESS], inbox/, reviews/, docs/, and projects/.
+Use projects/README.md as the project index.
+
+Give each synthetic project a projects/&lt;slug&gt;/ folder containing
+project.md, tasks.md, and notes.md. The index should link to each project
+and show its purpose, status, and next action. Keep Markdown authoritative.
+Put local working files in ignored .agent-work/. Do not publish anything.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="planner-prompt-3-title">Capture one note</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-3" aria-label="Copy capture one note prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="planner-prompt-3" aria-labelledby="planner-prompt-3-title" rows="8" readonly spellcheck="false">Draft a capture-note skill for [PLANNER_REPO] in the location supported
+by [CHOSEN_HARNESS]. Try it on this synthetic note: [EXAMPLE_NOTE].
+
+Save an inbox item with the original note, source, capture date, proposed
+project, and next action. Preserve uncertainty and flag duplicates.
+Show me the result. Incorporate [MY_CORRECTIONS], then test the revised
+skill on [SECOND_EXAMPLE_NOTE].</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="planner-prompt-4-title">Review projects and prepare a handoff</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-4" aria-label="Copy review projects and prepare a handoff prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="planner-prompt-4" aria-labelledby="planner-prompt-4-title" rows="8" readonly spellcheck="false">Create weekly-review and project-handoff skills for [PLANNER_REPO].
+Review only [SELECTED_INBOX_ITEMS_AND_PROJECTS]. Propose updates to
+project status and next actions; save an approved review in reviews/.
+
+A handoff should link to current state, open questions, and the next action.
+Test both skills on [SYNTHETIC_PROJECT_SLUG]. Record my corrections and
+the observed checks. Do not change files outside the selected scope.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="planner-prompt-5-title">Build a read-only view</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-5" aria-label="Copy build a read-only view prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="planner-prompt-5" aria-labelledby="planner-prompt-5-title" rows="8" readonly spellcheck="false">Build a plain HTML/CSS/JavaScript dashboard for [PLANNER_REPO].
+Export only [EXPLICIT_FILE_ALLOWLIST] into a public-safe snapshot.
+Show the project index, selected files, and text previews.
+
+Keep Markdown as the source of truth and provide no editing controls.
+Use synthetic content. Check that excluded files cannot enter the export,
+that links work, and that the view works on a phone. Show the local result.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="planner-prompt-6-title">Publish and verify one update</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-6" aria-label="Copy publish and verify one update prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="planner-prompt-6" aria-labelledby="planner-prompt-6-title" rows="8" readonly spellcheck="false">Prepare the dashboard for [APPROVED_HOSTING_ROUTE].
+List the exact public files and the deployment steps for my approval.
+Do not publish until I authorize it.
+
+After an authorized deployment, update [SYNTHETIC_SOURCE_FILE], regenerate
+the selected snapshot, and verify the visible change at [LIVE_URL].
+Record what you actually observed; label anything untested as unverified.</textarea>
+        </li>
+      </ol>
+      <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <nav class="page-next" aria-label="Next page">
+        <a class="button" href="./research.html">Continue to Research</a>
+      </nav>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>UZH.ai Students Association · Agentic AI workshop</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -22,7 +22,7 @@ document.querySelectorAll("button[data-copy-target]").forEach((button) => {
 
       await navigator.clipboard.writeText(field.value);
       button.textContent = "Copied!";
-      copyStatus.textContent = "Prompt copied. Replace its placeholders before using it.";
+      copyStatus.textContent = "Copied.";
       resetTimer = window.setTimeout(() => {
         button.textContent = originalLabel;
       }, 2000);
@@ -30,7 +30,7 @@ document.querySelectorAll("button[data-copy-target]").forEach((button) => {
       field.focus();
       field.select();
       field.setSelectionRange(0, field.value.length);
-      copyStatus.textContent = "Automatic copy is unavailable. Text selected: press Ctrl+C or Command+C, or use your device’s Copy action.";
+      copyStatus.textContent = "Text selected. Press Ctrl+C or Command+C to copy.";
     } finally {
       button.disabled = false;
     }

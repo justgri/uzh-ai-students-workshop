@@ -1,17 +1,19 @@
-# UZH.ai Agentic AI workshop
+# UZH.ai Students Intro to Agentic AI Workshop
+
+[Workshop website](https://justgri.github.io/uzh-ai-students-workshop/)
 
 Workshop website and shareable materials for the UZH.ai Students Association.
 The planned session is 23 November 2026, 16:00–19:00 Europe/Zurich at Zentrum.
 
-The website is a copy of the original HTML app scaffold. Its outline, room,
-setup requirements, prompts, and two sample downloads still contain explicit
-placeholders. Replace them with approved public content before sharing.
+Five static pages cover Intro, Tech, Basics, Planner, and Research. Exercise
+prompts use bracketed placeholders for participants' inputs. The room, outline,
+and sample downloads still need final workshop content.
 
 ## Repository map
 
 ```text
 index.html             Website entry point and editable page content
-.nojekyll              Empty marker for plain static GitHub Pages publishing
+site/*.html            Tech, Basics, Planner, and Research pages
 site/assets/           Website CSS and JavaScript
 site/downloads/        Approved public downloads and current sample files
 site/downloads/code/   Shared example scripts and their usage instructions
@@ -38,8 +40,9 @@ directly also displays the page; clipboard behavior may differ on local files.
 
 ## Edit and share
 
-- Edit the outline, session details, download cards, and prompt text in
-  `index.html`.
+- Edit the intro, outline, and file links in `index.html`; edit the other pages
+  in `site/tech.html`, `site/basics.html`, `site/planner.html`, and
+  `site/research.html`.
 - Edit appearance in `site/assets/styles.css` and copying behavior in
   `site/assets/script.js`.
 - Put approved public PDFs, guides, and examples in `site/downloads/` and
@@ -47,6 +50,9 @@ directly also displays the page; clipboard behavior may differ on local files.
 - Keep Markdown as the editable source for written guides; a PDF can be an
   additional downloadable export. The presentation and installation guide
   have not been added yet.
+- Writing preference: use as few headings and subheadings as possible. Remove
+  explanatory text that merely repeats the surrounding interface. Exercise
+  pages need one main idea, action steps, and prompts with task-specific inputs.
 
 See [development](docs/development.md) for editing checks and
 [deployment](docs/deployment.md) for GitHub Pages setup without a custom YAML

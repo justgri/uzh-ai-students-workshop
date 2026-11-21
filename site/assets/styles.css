@@ -36,6 +36,7 @@ p { margin-bottom: 1rem; }
 .brand span { margin-left: 0.6rem; color: var(--muted); font-size: 0.875rem; font-weight: 500; }
 nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 nav a { color: var(--muted); font-size: 0.95rem; font-weight: 600; }
+nav a[aria-current="page"] { color: var(--accent); text-decoration-thickness: 0.15em; }
 .hero { display: grid; grid-template-columns: 1.45fr 1fr; align-items: center; gap: 3rem; padding-block: 4.5rem 3rem; }
 .eyebrow { margin-bottom: 0.8rem; color: var(--accent); font-size: 0.875rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
 .lead { font-size: 1.2rem; font-weight: 600; }
@@ -52,7 +53,6 @@ dl { margin: 1.25rem 0 0; }
 dl div + div { margin-top: 1rem; }
 dt { color: var(--muted); font-size: 0.875rem; }
 dd { margin: 0; overflow-wrap: anywhere; }
-.draft-notice { margin-bottom: 0; padding: 1rem 1.25rem; border: 1px dashed #9aabd4; border-radius: 0.6rem; background: var(--tint); }
 .section { padding-block: 3.5rem; scroll-margin-top: 1.5rem; }
 .section + .section { border-top: 1px solid var(--border); }
 .section-heading { max-width: 47rem; margin-bottom: 1.75rem; }
@@ -62,16 +62,31 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .outline-list li::marker { color: var(--accent); font-weight: 750; }
 .outline-list h3 { margin-bottom: 0.4rem; }
 .outline-list p { margin-bottom: 0; color: var(--muted); }
-.download-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-.download-card, .prompt-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: 0.85rem; background: var(--surface); min-width: 0; }
-.download-card { display: flex; flex-direction: column; align-items: flex-start; }
-.download-card p { flex-grow: 1; color: var(--muted); }
-.tag { display: inline-block; margin-bottom: 1.25rem; padding: 0.2rem 0.65rem; border-radius: 0.35rem; background: var(--tint); color: var(--accent); font-size: 0.875rem; font-weight: 600; }
-.prompt-list { display: grid; gap: 1.25rem; }
+.file-links { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; list-style: none; margin: 0; padding: 0; }
+.page-header { max-width: 52rem; padding-block: 3.5rem 2rem; }
+.page-header h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+.page-header .lead { margin-bottom: 0; color: var(--muted); font-weight: 400; }
+.glossary { margin: 0 0 2.5rem; }
+.glossary > div { display: grid; grid-template-columns: 10rem 1fr; gap: 0.5rem 1.5rem; padding-block: 0.85rem; border-bottom: 1px solid var(--border); }
+.glossary > div + div { margin-top: 0; }
+.glossary dt { color: var(--ink); font-size: 1rem; font-weight: 700; }
+.glossary dd { color: var(--muted); }
+.steps { display: grid; gap: 1.25rem; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.prompt-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: 0.85rem; background: var(--surface); min-width: 0; counter-increment: step; }
 .prompt-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-.prompt-heading h3 { margin-bottom: 0; }
+.prompt-heading h2 { margin-bottom: 0; font-size: 1.2rem; letter-spacing: 0; }
+.prompt-heading h2::before { content: counter(step) ". "; color: var(--muted); }
 .prompt-heading .button { flex-shrink: 0; }
 textarea { display: block; width: 100%; min-height: 12rem; padding: 1rem; resize: vertical; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--background); color: var(--ink); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.95rem; line-height: 1.65; }
+.folder-tree { margin: 0 0 1rem; padding: 1.5rem; overflow-x: auto; border: 1px solid var(--border); border-radius: 0.85rem; background: var(--surface); font-size: 0.95rem; line-height: 1.65; }
+.inline-note { margin-bottom: 2rem; color: var(--muted); }
+.setup-list { margin: 0 0 2rem; }
+.setup-list > div { display: grid; grid-template-columns: 15rem 1fr; gap: 0.75rem 2rem; padding-block: 1.5rem; border-bottom: 1px solid var(--border); }
+.setup-list > div + div { margin-top: 0; }
+.setup-list dt { color: var(--ink); font-size: 1.1rem; font-weight: 700; }
+.setup-list p { max-width: 44rem; margin: 0.65rem 0 0; color: var(--muted); }
+.page-next { display: flex; justify-content: flex-end; margin-block: 2rem 3rem; }
+.page-next .button { color: #fff; font-size: 0.95rem; }
 .copy-status { min-height: 1.6em; margin: 1rem 0 0; color: var(--accent-hover); font-weight: 600; }
 .site-footer { padding-block: 1.75rem; border-top: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 0.875rem; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 2rem; }
@@ -79,12 +94,14 @@ textarea { display: block; width: 100%; min-height: 12rem; padding: 1rem; resize
 
 @media (max-width: 46rem) {
   .hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 3rem 2rem; }
-  .download-grid { grid-template-columns: 1fr; }
   .section { padding-block: 2.5rem; }
+  .setup-list > div { grid-template-columns: 1fr; gap: 0.5rem; }
 }
 
 @media (max-width: 26rem) {
   .container { width: calc(100% - 2rem); }
   .brand span { display: block; margin-left: 0; }
-  .prompt-card, .download-card, .session-card { padding: 1.1rem; }
+  .prompt-card, .session-card, .folder-tree { padding: 1.1rem; }
+  .glossary > div { grid-template-columns: 1fr; gap: 0.25rem; }
+  .page-header { padding-block: 2.5rem 1.5rem; }
 }

@@ -1,5 +1,6 @@
 admin/
 apps/
+presentation/
 
 # Local no-read hook experiment (Claude Code + Codex)
 .claude/settings.local.json

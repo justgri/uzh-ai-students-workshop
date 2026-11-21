@@ -1,7 +1,7 @@
 # GitHub Pages deployment
 
 This repository uses a root `index.html` with supporting files under `site/`.
-No custom YAML workflow, package installation, or build step is required.
+No custom YAML workflow, package installation, or local build step is required.
 Scaffolding the files does not enable Pages or publish the repository.
 
 ## Configure Pages
@@ -17,17 +17,15 @@ authorized operator:
 GitHub runs the deployment internally even though this repository does not
 provide its own workflow YAML.
 
-## Why `.nojekyll` exists
+## Default Pages processing
 
-Branch-based Pages publishing uses Jekyll by default. The empty `.nojekyll`
-file at the publishing root tells GitHub to skip that processing and serve the
-plain static site. HTML can work without it; the marker makes the intended
-buildless behavior explicit and avoids Jekyll's special file-handling rules.
-It does not provide access control or limit which files are published.
+Branch-based Pages publishing uses GitHub's default Jekyll processing. The
+website is plain HTML, CSS, and JavaScript, with no local build step or custom
+workflow to maintain.
 
 ## Public files and ignored storage
 
-Keep `index.html`, `.nojekyll`, `site/`, `docs/`, and shared repository
+Keep `index.html`, `site/`, `docs/`, and shared repository
 instructions eligible for Git tracking. Keep `admin/`, `apps/`, `.agent-work/`,
 secrets, environments, and caches local and ignored.
 
@@ -39,7 +37,9 @@ the selected public files and existing history before the first public push.
 
 ## Verify publication
 
-Check the root page, stylesheet, prompt copying, and both sample downloads.
+Open Intro and all four supporting pages directly, then follow their navigation.
+Check the shared stylesheet, prompt copying on each exercise page, and both
+sample downloads.
 For a project URL such as `https://OWNER.github.io/REPOSITORY/`, the stylesheet
 is at `site/assets/styles.css` below that URL. Relative links keep the
 repository path intact.
@@ -51,4 +51,4 @@ appears at the live URL. Do not claim deployment is verified until observed.
 ## References
 
 - [GitHub: publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-- [GitHub: static sites and `.nojekyll`](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+- [GitHub: creating a Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)

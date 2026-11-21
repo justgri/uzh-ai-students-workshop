@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Give an agent a clear workspace, small tasks, and visible checks.">
+    <title>Basics · Agentic AI workshop · UZH.ai</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">UZH.ai <span>Student workshop</span></a>
+        <nav aria-label="Workshop pages">
+          <a href="../index.html">Intro</a>
+          <a href="./tech.html">Tech</a>
+          <a href="./basics.html" aria-current="page">Basics</a>
+          <a href="./planner.html">Planner</a>
+          <a href="./research.html">Research</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <header class="page-header">
+        <h1>Basics</h1>
+        <p class="lead">Give an agent a clear workspace, small tasks, and visible checks.</p>
+      </header>
+
+      <dl class="glossary">
+        <div><dt>Agent harness</dt><dd>The app around the model that manages files, tools, permissions, and the working session.</dd></div>
+        <div><dt>Instructions</dt><dd>Project rules loaded by the harness, usually in <code>AGENTS.md</code> or <code>CLAUDE.md</code>.</dd></div>
+        <div><dt>Skills</dt><dd>Reusable procedures in a folder containing <code>SKILL.md</code>, with supporting files when needed.</dd></div>
+        <div><dt>Tools</dt><dd>Actions an agent can call, such as reading a file, running a command, or opening a browser.</dd></div>
+        <div><dt>Hooks</dt><dd>Configured actions triggered by events, such as before a tool call. Written instructions alone do not activate them.</dd></div>
+        <div><dt>Worklogs</dt><dd>An append-only record of decisions, changes, commands, and observed checks.</dd></div>
+        <div><dt>Agent handoffs</dt><dd>Saved context for continuing work: current state, evidence, open questions, and the next action.</dd></div>
+        <div><dt>Documentation</dt><dd>Durable explanations of the project, its structure, how to use it, and how to check it.</dd></div>
+      </dl>
+      <ol class="steps">
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="basics-prompt-1-title">Define the job</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-1" aria-label="Copy define the job prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" rows="8" readonly spellcheck="false">Help me start [PROJECT_NAME] for [AUDIENCE].
+Goal: [DESIRED_RESULT]. Inputs you may use: [APPROVED_FILES_OR_SYNTHETIC_DATA].
+Constraints: [TIME_BUDGET_AND_BOUNDARIES]. Success means: [OBSERVABLE_CHECK].
+
+Read the existing project instructions first. Summarize the goal, propose
+a small plan, and ask only questions that block progress. Keep existing
+access restrictions. Do not edit files yet.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="basics-prompt-2-title">Scaffold the repo</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-2" aria-label="Copy scaffold the repo prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="basics-prompt-2" aria-labelledby="basics-prompt-2-title" rows="8" readonly spellcheck="false">Prepare [REPO_NAME] for this plan using [CHOSEN_HARNESS].
+Create only the missing pieces: README.md, the instruction file this
+harness loads, docs/architecture.md, docs/development.md, and WORKLOG.md.
+Keep a small folder structure and document how to use and check it.
+
+State approved inputs, allowed changes, review points, and stop conditions
+in the instructions. Ignore secrets, local caches, and .agent-work/.
+Preserve existing content. Do not stage, commit, or publish.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="basics-prompt-3-title">Complete one small task</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-3" aria-label="Copy complete one small task prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="basics-prompt-3" aria-labelledby="basics-prompt-3-title" rows="8" readonly spellcheck="false">Complete [SMALL_TASK] using [APPROVED_INPUT].
+First name the files you expect to change and how you will check the result.
+Then make the smallest useful change and run those checks.
+
+Show the result for my review. Record the commands, observed outcomes,
+and remaining uncertainty in WORKLOG.md. Add a small workflow diagram
+to docs/architecture.md. Ask before expanding the scope.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="basics-prompt-4-title">Turn a checked procedure into a skill</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-4" aria-label="Copy turn a checked procedure into a skill prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="basics-prompt-4" aria-labelledby="basics-prompt-4-title" rows="8" readonly spellcheck="false">Package the successful [PROCEDURE] as a small skill for [CHOSEN_HARNESS].
+Use its supported skill location and SKILL.md format. Include inputs,
+steps, outputs, and checks. Test it on [SECOND_SYNTHETIC_CASE].
+
+Separately propose a hook for [HARMLESS_CHECK_COMMAND]. Explain where
+it must be configured. Only call it active after configuration, required
+trust, and a live test with synthetic files have been observed.
+Show the skill and test evidence for review before reusing it broadly.</textarea>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="basics-prompt-5-title">Leave a handoff</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-5" aria-label="Copy leave a handoff prompt" hidden>Copy prompt</button>
+          </div>
+          <textarea id="basics-prompt-5" aria-labelledby="basics-prompt-5-title" rows="8" readonly spellcheck="false">Prepare a handoff for continuing [PROJECT_NAME] in another agent session.
+Save it in docs/handoff.md with the goal, completed work, checks and
+evidence, unresolved questions, relevant file links, and one next action.
+
+Update WORKLOG.md and the usage documentation. Separate verified results
+from proposed work. Link to existing information instead of copying it.</textarea>
+        </li>
+      </ol>
+      <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <nav class="page-next" aria-label="Next page">
+        <a class="button" href="./planner.html">Continue to Planner</a>
+      </nav>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>UZH.ai Students Association · Agentic AI workshop</p>
+      </div>
+    </footer>
+  </body>
+</html>

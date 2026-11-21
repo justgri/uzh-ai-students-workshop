@@ -3,20 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Outline, downloads, and suggested prompts for the UZH.ai Agentic AI workshop.">
-    <title>Agentic AI workshop · UZH.ai</title>
+    <meta name="description" content="Introduction and outline for the UZH.ai Agentic AI workshop.">
+    <title>Intro · Agentic AI workshop · UZH.ai</title>
     <link rel="stylesheet" href="./site/assets/styles.css">
-    <script src="./site/assets/script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#main">UZH.ai <span>Student workshop</span></a>
-        <nav aria-label="Workshop resources">
-          <a href="#outline">Outline</a>
-          <a href="#downloads">Downloads</a>
-          <a href="#prompts">Prompts</a>
+        <a class="brand" href="./index.html">UZH.ai <span>Student workshop</span></a>
+        <nav aria-label="Workshop pages">
+          <a href="./index.html" aria-current="page">Intro</a>
+          <a href="./site/tech.html">Tech</a>
+          <a href="./site/basics.html">Basics</a>
+          <a href="./site/planner.html">Planner</a>
+          <a href="./site/research.html">Research</a>
         </nav>
       </div>
     </header>
@@ -24,11 +25,8 @@
     <main id="main" class="container">
       <section class="hero" aria-labelledby="page-title">
         <div>
-          <p class="eyebrow">Learn by building</p>
           <h1 id="page-title">Agentic AI,<br>one step at a time.</h1>
           <p class="lead">Think like a software engineer. Visualize agent work.</p>
-          <p>Your workshop outline, files, and suggested prompts in one place.</p>
-          <a class="button" href="#outline">Explore the outline</a>
         </div>
         <aside class="session-card" aria-labelledby="session-title">
           <p class="eyebrow" id="session-title">Planned session</p>
@@ -36,18 +34,14 @@
           <dl>
             <div><dt>Time</dt><dd>16:00–19:00 · Europe/Zurich</dd></div>
             <div><dt>Location</dt><dd>Zentrum · [Add room]</dd></div>
-            <div><dt>Bring</dt><dd>[Add confirmed setup requirements]</dd></div>
+            <div><dt>Setup</dt><dd><a href="./site/tech.html">Software and subscriptions</a></dd></div>
           </dl>
         </aside>
       </section>
 
-      <p class="draft-notice"><strong>Scaffold preview.</strong> The outline, files, and prompts below contain placeholders for the instructor to replace before sharing.</p>
-
       <section id="outline" class="section" aria-labelledby="outline-title">
         <div class="section-heading">
-          <p class="eyebrow">The session</p>
           <h2 id="outline-title">Workshop outline</h2>
-          <p>A proposed sequence. Add confirmed timings and checkpoints here.</p>
         </div>
         <!-- Replace these descriptions with the approved workshop outline. -->
         <ol class="outline-list">
@@ -68,87 +62,26 @@
             <p>[Add the exercise: deploy the demo and check that a source change reaches the live page.]</p>
           </li>
         </ol>
-        <p class="section-note">Planning placeholder: reserve two hours for the practical activities and solutions demo. Add breaks and closing details within the three-hour session.</p>
+        <p class="section-note">Practical activities and solutions demo: two hours within the three-hour session.</p>
       </section>
 
       <section id="downloads" class="section" aria-labelledby="downloads-title">
-        <div class="section-heading">
-          <p class="eyebrow">Keep a copy</p>
-          <h2 id="downloads-title">Workshop files</h2>
-          <p>These sample files demonstrate the download buttons. Replace them with approved workshop materials.</p>
-        </div>
+        <h2 id="downloads-title">Files</h2>
         <!-- Add public files under ./site/downloads/ and keep links relative. -->
-        <div class="download-grid">
-          <article class="download-card">
-            <span class="tag">Placeholder · Markdown</span>
-            <h3>Workshop handout</h3>
-            <p>[Add a short description of the handout and when students will use it.]</p>
-            <a class="button button-secondary" href="./site/downloads/workshop-handout-placeholder.md" download>Download sample handout</a>
-          </article>
-          <article class="download-card">
-            <span class="tag">Placeholder · Markdown</span>
-            <h3>Starter notes</h3>
-            <p>[Add a short description of the starter material and what students should do with it.]</p>
-            <a class="button button-secondary" href="./site/downloads/starter-notes-placeholder.md" download>Download sample notes</a>
-          </article>
-        </div>
+        <ul class="file-links">
+          <li><a href="./site/downloads/workshop-handout-placeholder.md" download>Workshop handout (sample Markdown)</a></li>
+          <li><a href="./site/downloads/starter-notes-placeholder.md" download>Starter notes (sample Markdown)</a></li>
+        </ul>
       </section>
 
-      <section id="prompts" class="section" aria-labelledby="prompts-title">
-        <div class="section-heading">
-          <p class="eyebrow">Start a conversation</p>
-          <h2 id="prompts-title">Suggested prompts</h2>
-          <p>Placeholder prompts for each activity. Replace the bracketed text before using them.</p>
-        </div>
-        <p id="prompt-help" class="section-note">Use a copy button, or select the text and copy it manually.</p>
-        <noscript><p>Copy buttons need JavaScript. You can still select and copy every prompt below.</p></noscript>
-        <div class="prompt-list">
-          <!-- Edit the text inside each textarea to update its copied prompt. -->
-          <article class="prompt-card">
-            <div class="prompt-heading">
-              <h3 id="repository-prompt-title">Create a planning repository</h3>
-              <button type="button" class="button button-secondary" data-copy-target="repository-prompt" aria-label="Copy the planning repository prompt" hidden>Copy prompt</button>
-            </div>
-            <textarea id="repository-prompt" aria-labelledby="repository-prompt-title" aria-describedby="prompt-help" rows="6" readonly spellcheck="false">[PLACEHOLDER: Add the approved repository prompt.]
-
-Goal: [Describe a small synthetic planning project.]
-Deliverables: [List the folders, Markdown files, and agent instructions.]
-Constraints: [Define the scope and which files the agent may access.]
-Checkpoint: [Describe what students should review before continuing.]</textarea>
-          </article>
-          <article class="prompt-card">
-            <div class="prompt-heading">
-              <h3 id="dashboard-prompt-title">Build a read-only dashboard</h3>
-              <button type="button" class="button button-secondary" data-copy-target="dashboard-prompt" aria-label="Copy the dashboard prompt" hidden>Copy prompt</button>
-            </div>
-            <textarea id="dashboard-prompt" aria-labelledby="dashboard-prompt-title" aria-describedby="prompt-help" rows="6" readonly spellcheck="false">[PLACEHOLDER: Add the approved dashboard prompt.]
-
-Goal: [Describe the page and its audience.]
-Inputs: [List only the explicitly approved synthetic files.]
-Constraints: [Specify plain HTML/CSS/JavaScript and read-only behavior.]
-Checkpoint: [Describe the expected view and how to check it.]</textarea>
-          </article>
-          <article class="prompt-card">
-            <div class="prompt-heading">
-              <h3 id="publish-prompt-title">Publish and verify</h3>
-              <button type="button" class="button button-secondary" data-copy-target="publish-prompt" aria-label="Copy the publishing prompt" hidden>Copy prompt</button>
-            </div>
-            <textarea id="publish-prompt" aria-labelledby="publish-prompt-title" aria-describedby="prompt-help" rows="6" readonly spellcheck="false">[PLACEHOLDER: Add the approved publishing prompt.]
-
-Target: [Add the approved GitHub Pages repository and source folder.]
-Public files: [List exactly what may be published.]
-Checkpoint: [Specify the review required before publication.]
-Verification: [Describe one source update and the expected live change.]</textarea>
-          </article>
-        </div>
-        <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
-      </section>
+      <nav class="page-next" aria-label="Next page">
+        <a class="button" href="./site/tech.html">Continue to Tech</a>
+      </nav>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>UZH.ai Students Association · Agentic AI workshop</p>
-        <p>[Add a public contact or support link]</p>
       </div>
     </footer>
   </body>

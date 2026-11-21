@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if ! python3 -B -I '/Users/justinasgrigaitis/Documents/Github/uzh-ai-students-workshop/.claude/hooks/no_read_guard.py'; then echo 'orchestration-read guard: policy denied the call or the hook failed; blocking' >&2; exit 2; fi",
+            "timeout": 15,
+            "onFailure": "block",
+            "statusMessage": "Checking orchestration-only reads"
+          }
+        ]
+      }
+    ]
+  }
+}

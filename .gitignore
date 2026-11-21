@@ -1,7 +1,14 @@
 admin/
+apps/
+
 # Local no-read hook experiment (Claude Code + Codex)
 .claude/settings.local.json
 .claude/hooks/
 .codex/hooks.json
 .agent-work/scratch/2026-11-20-hook-audit/
 .agent-work/scratch/2026-11-20-hook-fix/
+
+.DS_Store
+
+# Local agent working storage (retained at the repository root)
+/.agent-work/

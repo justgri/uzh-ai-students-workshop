@@ -1,23 +1,5 @@
 # Agent instructions
 
-## Local file-access experiment
-
-Only read agent-orchestration files: the hook code/config, agent instruction
-files and rules, installed skill bundles, and repository README.md files.
-The exact allowlist and activation steps are in [.claude/hooks/README.md](.claude/hooks/README.md).
-Other project files, including ignored planning documents, may be newly
-created or appended with literal text but must not be read, searched for
-contents, previewed, copied or loaded through programs, tools or delegated
-agents. This restriction takes precedence over the planning-source reading
-guidance below while the experiment is in effect.
-
-The human-only boundaries below override all orchestration/README exceptions.
-Do not turn off, modify or route around the guard to obtain a denied read.
-Hook maintenance requires an explicit user request and, if the active guard
-blocks that maintenance, a human must disable it. A hook file or passing
-self-test does not establish activation: require a live synthetic read denial
-after reviewing/trusting the hook in the relevant app.
-
 ## Project in brief
 
 This repository prepares the **UZH.ai Students Association Agentic AI workshop**, planned for **23 November 2026, 16:00–19:00 Europe/Zurich** at Zentrum. It is a bounded, voluntary outreach project, separate from the instructor's PhD, Python course and PraxAI work. The audience is up to 30 students in teams of 2–3; no engineering background is required.

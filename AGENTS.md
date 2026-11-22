@@ -4,13 +4,13 @@
 
 This repository prepares the **UZH.ai Students Association Agentic AI workshop**, planned for **23 November 2026, 16:00–19:00 Europe/Zurich** at Zentrum. It is a bounded, voluntary outreach project, separate from the instructor's PhD, Python course and PraxAI work. The audience is up to 30 students in teams of 2–3; no engineering background is required.
 
-The two teaching messages are **think like a software engineer** and **visualize agent work**. Three connected activities use the same example:
+The current presentation labels are **think like a programmer** and **build personal web apps**, expressing the earlier engineering-habits and visual-inspection themes. The user's November 22 sequence is intro presentation → guided personal planner / gentle technical setup → open-ended research. Planner and research are core; the dashboard is an extension. Student apps stay on localhost, GitHub setup is homework and students do not deploy. A brief deployment example from the instructor's own repo may appear at the end. The practical timing split remains a proposal. Earlier prepared activities used the same example:
 
 1. Create a personal-planning / second-brain repository with structured Markdown, agent instructions, a reviewed workflow pilot, a reference-skill demonstration and checks.
 2. Build a read-only dashboard showing selected projects, files and text previews.
-3. Deploy the demonstration and verify that a source update reaches the live view.
+3. Earlier deployment activity: retained only as future reference; it is outside current student workshop work.
 
-The proposed default is plain HTML/CSS/JavaScript with GitHub Pages; Streamlit with Community Cloud is an alternative for prepared teams. Preserve the three-hour scope, 30-minute / 15-slide kickoff and two-hour practical activity plus solutions-demo allocation. Detailed pacing, route and support assignments remain proposals until agreed.
+For the optional local dashboard, the proposed default is plain HTML/CSS/JavaScript; Streamlit is an alternative for prepared teams. GitHub Pages and Community Cloud are future hosting references, not workshop requirements. Preserve the three-hour scope, 30-minute kickoff and two-hour practical activity plus solutions-demo allocation. The current presentation target is 20–25 slides, with a 24-slide working outline. Keep four separate presentation sections in both the website and slide deck: intro/motivation, intro to agent harness, agentic AI vocabulary, and tech vocabulary. Use slower live examples for each vocabulary section; do not group parts 3–4. This supersedes the earlier 15-slide target. Detailed pacing, route and support assignments remain proposals until agreed.
 
 ## Planning sources
 

@@ -49,6 +49,8 @@ nav a[aria-current="page"] { color: var(--accent); text-decoration-thickness: 0.
 .button-secondary:hover { background: var(--tint); color: var(--accent-hover); }
 .session-card { padding: 1.75rem; border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: 0.9rem; background: var(--surface); }
 .session-date { font-size: 1.5rem; font-weight: 750; line-height: 1.3; }
+.session-qr { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 0.95rem; }
+.session-qr img { display: block; width: 164px; max-width: 100%; height: auto; }
 dl { margin: 1.25rem 0 0; }
 dl div + div { margin-top: 1rem; }
 dt { color: var(--muted); font-size: 0.875rem; }
@@ -63,6 +65,8 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .outline-list h3 { margin-bottom: 0.4rem; }
 .outline-list p { margin-bottom: 0; color: var(--muted); }
 .file-links { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; list-style: none; margin: 0; padding: 0; }
+.reference-list { margin: 0; padding-left: 1.25rem; }
+.reference-list li + li { margin-top: 0.75rem; }
 .page-header { max-width: 52rem; padding-block: 3.5rem 2rem; }
 .page-header h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
 .page-header .lead { margin-bottom: 0; color: var(--muted); font-weight: 400; }

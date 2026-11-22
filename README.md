@@ -3,11 +3,13 @@
 [Workshop website](https://justgri.github.io/uzh-ai-students-workshop/)
 
 Workshop website and shareable materials for the UZH.ai Students Association.
-The planned session is 23 November 2026, 16:00–19:00 Europe/Zurich at Zentrum.
+The planned session is 23 November 2026, 16:00–19:00 Europe/Zurich at Zentrum,
+room **SOE-E-02**.
 
 Five static pages cover Intro, Tech, Basics, Planner, and Research. Exercise
-prompts use bracketed placeholders for participants' inputs. The room, outline,
-and sample downloads still need final workshop content.
+prompts use bracketed placeholders for participants' inputs. Intro presents
+four separate sections: motivation, agent harness, agentic AI vocabulary,
+and tech vocabulary. Sample downloads still need final workshop content.
 
 ## Repository map
 

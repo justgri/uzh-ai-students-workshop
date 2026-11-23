@@ -30,8 +30,11 @@ Prompts contain two to four sentences. Later-stage work is grouped under
 “Go further”; the Planner scaffold and Basics glossary are expandable.
 Textareas fit their content on load, resize and expansion, while retaining
 manual resizing and no-JavaScript access. Unknown participant inputs remain
-bracketed placeholders. Planner links to the complete public skill template
-in `site/downloads/skills/personal-planner-operator/`.
+bracketed placeholders. Planner offers a generic, downloadable instruction
+template at `site/downloads/planner/AGENTS.md` and links to the complete public
+skill template in `site/downloads/skills/personal-planner-operator/`. The
+downloaded instructions belong in the student's planner; they do not replace
+this workshop repository's root `AGENTS.md`.
 
 Copying uses the browser's Clipboard API when available. If access is denied
 or unavailable, the script selects the prompt and explains how to copy it

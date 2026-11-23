@@ -39,7 +39,8 @@ the selected public files and existing history before the first public push.
 
 Open Intro and all four supporting pages directly, then follow their navigation.
 Check the shared stylesheet, prompt copying on each exercise page, and both
-sample downloads.
+final presentation PDFs linked from Files: Presentation (Original) and
+Presentation (AI-improved).
 For a project URL such as `https://OWNER.github.io/REPOSITORY/`, the stylesheet
 is at `site/assets/styles.css` below that URL. Relative links keep the
 repository path intact.

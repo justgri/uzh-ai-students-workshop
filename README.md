@@ -9,7 +9,8 @@ room **SOE-E-02**.
 Five static pages cover Intro, Tech, Basics, Planner, and Research. Exercise
 prompts use bracketed placeholders for participants' inputs. Intro presents
 four separate sections: motivation, agent harness, agentic AI vocabulary,
-and tech vocabulary. Sample downloads still need final workshop content.
+and tech vocabulary. Files offers the final [Presentation (Original)](site/downloads/intro_agentic_ai.pdf)
+and [Presentation (AI-improved)](site/downloads/intro_agentic_ai_blue.pdf) PDFs.
 
 ## Repository map
 
@@ -17,7 +18,7 @@ and tech vocabulary. Sample downloads still need final workshop content.
 index.html             Website entry point and editable page content
 site/*.html            Tech, Basics, Planner, and Research pages
 site/assets/           Website CSS and JavaScript
-site/downloads/        Approved public downloads and current sample files
+site/downloads/        Final presentation PDFs and public download notes
 site/downloads/code/   Shared example scripts and their usage instructions
 docs/                  Project architecture, development, and deployment notes
 admin/                 Private preparation; ignored by Git
@@ -49,9 +50,11 @@ directly also displays the page; clipboard behavior may differ on local files.
   `site/assets/script.js`.
 - Put approved public PDFs, guides, and examples in `site/downloads/` and
   add relative links beginning with `./site/downloads/` to the page.
-- Keep Markdown as the editable source for written guides; a PDF can be an
-  additional downloadable export. The presentation and installation guide
-  have not been added yet.
+- The final presentation sources are `presentation/final/intro_agentic_ai.key`
+  and `presentation/final/intro_agentic_ai_blue.key`. Export authorized changes
+  to the corresponding stable PDFs in `site/downloads/` and refresh their
+  matching local copies in `presentation/final/`. Files contains only these
+  two presentations. See the [download notes](site/downloads/README.md).
 - Writing preference: use as few headings and subheadings as possible. Remove
   explanatory text that merely repeats the surrounding interface. Exercise
   pages need one main idea, action steps, and prompts with task-specific inputs.

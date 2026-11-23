@@ -19,3 +19,5 @@ presentation/
 /.claude/skills/local-keynote-design
 /.agents/skills/skill-authorization
 /.claude/skills/skill-authorization
+/.agents/skills/personal-planner-operator
+/.claude/skills/personal-planner-operator

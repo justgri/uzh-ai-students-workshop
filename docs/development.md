@@ -46,10 +46,13 @@ when inserting them into HTML, including inside textareas.
 
 ## Add downloads
 
-Put public PDFs, guides, and examples in `site/downloads/`. Keep runnable
-examples and their instructions in `site/downloads/code/`. Maintain a single
-source copy of each script. Add a file link in `index.html` with a relative
-link such as `./site/downloads/presentation.pdf` after the file exists.
+The Files section contains exactly two final PDFs in `site/downloads/`:
+`intro_agentic_ai.pdf` labelled “Presentation (Original)” and
+`intro_agentic_ai_blue.pdf` labelled “Presentation (AI-improved)”. Their
+authoritative editable sources have the same stems in `presentation/final/`.
+For authorized deck changes, export from those exact sources and refresh both
+the public PDFs and their byte-identical local copies in `presentation/final/`.
+Keep links relative to root `index.html`, beginning `./site/downloads/`.
 
 Keep a written guide's Markdown source beside its PDF export when both are
 shared. Do not add empty PDFs or links to materials that are not present yet.

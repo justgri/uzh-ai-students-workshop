@@ -1,19 +1,21 @@
 # Public workshop downloads
 
-The two Markdown files here are copies of the original HTML scaffold's
-placeholder downloads. They demonstrate the download links and still need
-approved workshop content.
+The website's Files section contains exactly two final presentation downloads,
+selected by the user on 23 November 2026:
 
-When ready, add the presentation PDF, installation guide, and example scripts
-here. Suggested names are `presentation.pdf`, `installation-guide.md`,
-`installation-guide.pdf`, and `code/example.py`; these files are not present
-yet. Keep Markdown as the editable source for a written guide and add a PDF
-export when useful.
+| Label | Public PDF | Authoritative Keynote source |
+| --- | --- | --- |
+| Presentation (Original) | [intro_agentic_ai.pdf](intro_agentic_ai.pdf) | `presentation/final/intro_agentic_ai.key` |
+| Presentation (AI-improved) | [intro_agentic_ai_blue.pdf](intro_agentic_ai_blue.pdf) | `presentation/final/intro_agentic_ai_blue.key` |
 
-Update the download cards in the root `index.html` after adding each file.
-Links from that page start with `./site/downloads/`. Remove a sample card when
-its placeholder is replaced. Keep reusable example scripts in `code/` with
-their usage instructions rather than keeping duplicate script sources.
+These exports contain 44 slides each. Keep the filenames and
+labels stable. Export future authorized changes from the relevant final
+Keynote source, then refresh the public PDF here and its byte-identical copy
+beside that source in `presentation/final/`. That local preparation folder
+is ignored and is not served as a website download.
+
+Links in root `index.html` start with `./site/downloads/`. The older sample
+Markdown files are scaffold history and are no longer linked from Files.
 
 Every file in this directory is intended to be public. Do not copy private
 planning or participant records into it.

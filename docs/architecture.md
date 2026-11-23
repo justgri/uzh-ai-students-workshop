@@ -29,8 +29,9 @@ cards with a purpose, a grey explanatory example and a human inspection step.
 Prompts contain two to four sentences. Later-stage work is grouped under
 “Go further”; the Planner scaffold and Basics glossary are expandable.
 Textareas fit their content on load, resize and expansion, while retaining
-manual resizing and no-JavaScript access. Unknown participant inputs and the
-instructor's public planning-skill URL remain bracketed placeholders.
+manual resizing and no-JavaScript access. Unknown participant inputs remain
+bracketed placeholders. Planner links to the complete public skill template
+in `site/downloads/skills/personal-planner-operator/`.
 
 Copying uses the browser's Clipboard API when available. If access is denied
 or unavailable, the script selects the prompt and explains how to copy it
@@ -46,11 +47,15 @@ manually. With JavaScript disabled, the prompts remain manually selectable.
   localhost root and below a GitHub Pages repository path.
 - The original `apps/html_website/` scaffold remains unchanged and ignored.
   The public copy is maintained independently; changes are not synchronized.
-- Only the HTML, CSS, JavaScript, and two placeholder downloads were copied.
-  Local app logs and other app variants were not copied into the public site.
-- The Planner example is synthetic. It was not copied from a personal planning
-  repository. Tech uses the software list supplied for this workshop; the
-  inherited installation guide was not imported.
+- The scaffold originally included HTML, CSS, JavaScript, and two placeholder
+  downloads. Files now links only to the two final presentation PDFs selected
+  on 23 November 2026; their stable public paths and native sources are recorded
+  in `AGENTS.md` and `site/downloads/README.md`. Local app logs and other app
+  variants were not copied into the public site.
+- The Planner records are synthetic. Its public skill template is adapted
+  from the instructor's planning workflow, with a self-contained checklist
+  and exercise paths; no personal planner records were copied. Tech uses the
+  workshop software list; the inherited installation guide was not imported.
 - The paid plan is a workshop setup requirement, not a claim that all agent
   platforms require payment. Research prompts describe a method; they do not
   report benchmark results or claim an installed automation.

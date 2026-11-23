@@ -11,7 +11,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="./index.html"><img class="brand-logo" src="./site/assets/uzh-ai-students-logo.svg" alt="UZH.ai Students" width="825" height="274"> <span>Student workshop</span></a>
+        <a class="brand" href="./index.html"><img class="brand-logo" src="./site/assets/uzh-ai-students-logo.svg" alt="UZH.ai Students" width="825" height="274"> <span>Workshop Series</span></a>
         <nav aria-label="Workshop pages">
           <a href="./index.html" aria-current="page">Intro</a>
           <a href="./site/tech.html">Tech</a>
@@ -22,31 +22,38 @@
       </div>
     </header>
 
-    <main id="main" class="container">
+    <main id="main" class="container intro-page">
       <section class="hero" aria-labelledby="page-title">
         <div>
           <img class="intro-logo" src="./site/assets/uzh-ai-students-logo.svg" alt="UZH.ai Students" width="825" height="274">
-          <h1 id="page-title">Agentic AI,<br>one step at a time.</h1>
-          <p class="lead">Think like a programmer. Build personal web apps.</p>
+          <h1 id="page-title">Intro to Agentic AI<br>Workshop #1</h1>
+          <p class="lead">Learn vocabulary. Think like a programmer. Automate research workflows.</p>
         </div>
         <aside class="session-card" aria-labelledby="session-title">
-          <p class="eyebrow" id="session-title">Planned session</p>
-          <p class="session-date">23 November 2026</p>
-          <dl>
-            <div><dt>Time</dt><dd>16:00–19:00 · Europe/Zurich</dd></div>
-            <div><dt>Location</dt><dd>Zentrum · SOE-E-02</dd></div>
-            <div><dt>Setup</dt><dd><a href="./site/tech.html">Software and subscriptions</a></dd></div>
-          </dl>
-          <a class="session-qr" href="https://justgri.github.io/uzh-ai-students-workshop/">
-            <img src="./site/assets/workshop-website-qr.svg" width="164" height="164" alt="QR code for the workshop website">
-            <span>Workshop website</span>
-          </a>
+          <div>
+            <p class="eyebrow" id="session-title">Session #1</p>
+            <p class="session-date">23 November 2026</p>
+            <dl>
+              <div><dt>Time</dt><dd>16:00–19:00 · Europe/Zurich</dd></div>
+              <div><dt>Location</dt><dd>Zentrum · SOE-E-02</dd></div>
+            </dl>
+            <p class="session-software"><a href="./site/tech.html">Software</a></p>
+          </div>
+          <img class="session-qr" src="./site/assets/workshop-website-qr.svg" width="164" height="164" alt="QR code for the workshop website">
         </aside>
+      </section>
+
+      <section id="downloads" class="section" aria-labelledby="downloads-title">
+        <h2 id="downloads-title">Files</h2>
+        <ul class="file-links">
+          <li><a href="./site/downloads/intro_agentic_ai.pdf" download>Presentation (Original)</a></li>
+          <li><a href="./site/downloads/intro_agentic_ai_blue.pdf" download>Presentation (AI-improved)</a></li>
+        </ul>
       </section>
 
       <section id="outline" class="section" aria-labelledby="outline-title">
         <div class="section-heading">
-          <h2 id="outline-title">Presentation outline</h2>
+          <h2 id="outline-title">Presentation</h2>
         </div>
         <ol class="outline-list">
           <li>
@@ -56,6 +63,7 @@
           <li>
             <h3>Intro to agent harness</h3>
             <p>Chat, files, tools, and computer use. How the agent plans work, launches subagents, and coordinates between chats. Projects, conversations, and context engineering.</p>
+            <p><a href="./site/basics.html">Basics</a> · Try a small agent task.</p>
           </li>
           <li>
             <h3>Agentic AI vocabulary</h3>
@@ -66,28 +74,31 @@
             <p>Git, GitHub, VS Code, and Python: what each does and how they fit together, with live examples.</p>
           </li>
         </ol>
-        <p class="section-note">Then: a guided <a href="./site/planner.html">personal planner</a> and an <a href="./site/research.html">open-ended research problem</a>. The dashboard is an optional extension. Apps stay on localhost; GitHub setup is homework.</p>
       </section>
 
-      <section id="downloads" class="section" aria-labelledby="downloads-title">
-        <h2 id="downloads-title">Files</h2>
-        <!-- Add public files under ./site/downloads/ and keep links relative. -->
-        <ul class="file-links">
-          <li><a href="./site/downloads/workshop-handout-placeholder.md" download>Workshop handout (sample Markdown)</a></li>
-          <li><a href="./site/downloads/starter-notes-placeholder.md" download>Starter notes (sample Markdown)</a></li>
-        </ul>
+      <section id="activities" class="section" aria-labelledby="activities-title">
+        <h2 id="activities-title">Practical activities</h2>
+        <div class="activity-list">
+          <section aria-labelledby="planner-title">
+            <h3 id="planner-title"><a href="./site/planner.html">Personal planner</a></h3>
+            <p>Build a second brain for projects, notes and next actions.</p>
+          </section>
+          <section aria-labelledby="research-title">
+            <h3 id="research-title"><a href="./site/research.html">Open-ended research</a></h3>
+            <p>Explore a question and check the evidence with an agent.</p>
+          </section>
+        </div>
       </section>
 
       <section id="references" class="section" aria-labelledby="references-title">
         <h2 id="references-title">References</h2>
         <ul class="reference-list">
           <li><a href="https://github.com/justgri/uzh-ai-students-workshop">Workshop GitHub repository</a></li>
-          <li><a href="https://academy.claude.com/tutorials">Claude Academy tutorials</a></li>
-          <li><a href="https://www.youtube.com/watch?v=j7d5rs0iMlE">Aniket Panjwani — YouTube tutorials</a></li>
-          <li><a href="https://www.youtube.com/watch?v=HzgByl5ZsWE">Paul Goldsmith-Pinkham — Claude Code for Economists</a></li>
-          <li><a href="https://aieconomist.io/resources">Aniket Panjwani — The AI Economist Library</a></li>
-          <li><a href="https://youtu.be/XG4YWtEJtOg?t=3365">Stanford — Empirical Work in the Age of AI</a> · Gentzkow segment for PhD students: 56:00–1:22:00</li>
           <li>Stanford CS193T: <a href="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/">Thinking with AI</a> · <a href="https://web.stanford.edu/class/archive/cs/cs193t/cs193t.1272/course/syllabus/">Syllabus</a> · <a href="https://www.youtube.com/watch?v=I7zvCSGMkoc">Lecture recording</a></li>
+          <li><a href="https://academy.claude.com/tutorials">Claude Academy tutorials</a></li>
+          <li>Aniket Panjwani — <a href="https://www.youtube.com/watch?v=j7d5rs0iMlE">YouTube tutorials</a> · <a href="https://aieconomist.io/resources">The AI Economist Library</a></li>
+          <li><a href="https://www.youtube.com/watch?v=HzgByl5ZsWE">Paul Goldsmith-Pinkham — Claude Code for Economists</a></li>
+          <li><a href="https://youtu.be/XG4YWtEJtOg?t=3365">Stanford — Empirical Work in the Age of AI</a> · Gentzkow segment for PhD students: 56:00–1:22:00</li>
         </ul>
       </section>
 

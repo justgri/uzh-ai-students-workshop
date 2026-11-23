@@ -12,7 +12,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../index.html"><img class="brand-logo" src="./assets/uzh-ai-students-logo.svg" alt="UZH.ai Students" width="825" height="274"> <span>Student workshop</span></a>
+        <a class="brand" href="../index.html"><img class="brand-logo" src="./assets/uzh-ai-students-logo.svg" alt="UZH.ai Students" width="825" height="274"> <span>Workshop Series</span></a>
         <nav aria-label="Workshop pages">
           <a href="../index.html">Intro</a>
           <a href="./tech.html">Tech</a>
@@ -25,7 +25,19 @@
     <main id="main" class="container">
       <header class="page-header">
         <h1>Basics</h1>
-        <p class="lead">Give an agent a small job and make its work easy to check.</p>
+        <details class="exercise-reference">
+          <summary>Vocabulary</summary>
+          <dl class="glossary">
+            <div><dt>Harness</dt><dd>The app around the model that manages tools, permissions and the session.</dd></div>
+            <div><dt>Context</dt><dd>The information supplied for the task, including conversation, instructions, relevant files and tool results.</dd></div>
+            <div><dt>Instructions</dt><dd>Standing project guidance, such as <code>AGENTS.md</code> or <code>CLAUDE.md</code>.</dd></div>
+            <div><dt>Skill</dt><dd>A reusable procedure in a folder containing <code>SKILL.md</code>.</dd></div>
+            <div><dt>Hook</dt><dd>A configured check triggered by an event, such as before a tool call.</dd></div>
+            <div><dt>Tool</dt><dd>An action an agent can call, such as searching online or reading a selected calendar.</dd></div>
+            <div><dt>Computer use</dt><dd>Working with an app through its screen, mouse and keyboard.</dd></div>
+            <div><dt>Worklog / handoff</dt><dd>A record of changes and saved context for continuing in another session.</dd></div>
+          </dl>
+        </details>
         <dl class="page-overview">
           <div><dt>Task</dt><dd>Research a fictional train journey and save a useful comparison.</dd></div>
           <div><dt>Learn</dt><dd>Write instructions, check sources, inspect changes and continue in a new session.</dd></div>
@@ -144,19 +156,6 @@
       </details>
 
       <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
-      <details class="exercise-reference">
-        <summary>Vocabulary</summary>
-        <dl class="glossary">
-          <div><dt>Harness</dt><dd>The app around the model that manages tools, permissions and the session.</dd></div>
-          <div><dt>Context</dt><dd>The information supplied for the task, including conversation, instructions, relevant files and tool results.</dd></div>
-          <div><dt>Instructions</dt><dd>Standing project guidance, such as <code>AGENTS.md</code> or <code>CLAUDE.md</code>.</dd></div>
-          <div><dt>Skill</dt><dd>A reusable procedure in a folder containing <code>SKILL.md</code>.</dd></div>
-          <div><dt>Hook</dt><dd>A configured check triggered by an event, such as before a tool call.</dd></div>
-          <div><dt>Tool</dt><dd>An action an agent can call, such as searching online or reading a selected calendar.</dd></div>
-          <div><dt>Computer use</dt><dd>Working with an app through its screen, mouse and keyboard.</dd></div>
-          <div><dt>Worklog / handoff</dt><dd>A record of changes and saved context for continuing in another session.</dd></div>
-        </dl>
-      </details>
       <section id="references" class="section" aria-labelledby="references-title">
         <h2 id="references-title">Skills to explore</h2>
         <ul class="reference-list">

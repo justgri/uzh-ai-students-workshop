@@ -12,7 +12,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../index.html">UZH.ai <span>Student workshop</span></a>
+        <a class="brand" href="../index.html"><img class="brand-logo" src="./assets/uzh-ai-students-logo.svg" alt="UZH.ai Students" width="825" height="274"> <span>Student workshop</span></a>
         <nav aria-label="Workshop pages">
           <a href="../index.html">Intro</a>
           <a href="./tech.html">Tech</a>
@@ -30,10 +30,12 @@
 
       <dl class="glossary">
         <div><dt>Agent harness</dt><dd>The app around the model that manages files, tools, permissions, and the working session.</dd></div>
+        <div><dt>Context</dt><dd>Information available to the agent for the current task, drawn from the conversation, instructions, relevant files, and tool results.</dd></div>
         <div><dt>Instructions</dt><dd>Project rules loaded by the harness, usually in <code>AGENTS.md</code> or <code>CLAUDE.md</code>.</dd></div>
         <div><dt>Skills</dt><dd>Reusable procedures in a folder containing <code>SKILL.md</code>, with supporting files when needed.</dd></div>
-        <div><dt>Tools</dt><dd>Actions an agent can call, such as reading a file, running a command, or opening a browser.</dd></div>
+        <div><dt>Tools</dt><dd>Actions an agent can call, including access to other software. Workshop examples: Canva designs and reading a Google Calendar schedule.</dd></div>
         <div><dt>Hooks</dt><dd>Configured actions triggered by events, such as before a tool call. Written instructions alone do not activate them.</dd></div>
+        <div><dt>Computer use</dt><dd>Working with an app through its screen, mouse, and keyboard. Possible demo: making the workshop poster in MS Paint.</dd></div>
         <div><dt>Worklogs</dt><dd>An append-only record of decisions, changes, commands, and observed checks.</dd></div>
         <div><dt>Agent handoffs</dt><dd>Saved context for continuing work: current state, evidence, open questions, and the next action.</dd></div>
         <div><dt>Documentation</dt><dd>Durable explanations of the project, its structure, how to use it, and how to check it.</dd></div>
@@ -107,6 +109,14 @@ from proposed work. Link to existing information instead of copying it.</textare
         </li>
       </ol>
       <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <section id="references" class="section" aria-labelledby="references-title">
+        <h2 id="references-title">Skills to explore</h2>
+        <ul class="reference-list">
+          <li>General: <a href="https://officialskills.sh/">OfficialSkills</a> · <a href="https://github.com/VoltAgent/awesome-agent-skills">Awesome Agent Skills</a></li>
+          <li>Economics research: <a href="https://psantanna.com/claude-code-my-workflow/workflow-guide.html">Pedro Sant’Anna’s workflow</a> · <a href="https://github.com/scunning1975/MixtapeTools/tree/main/skills">Scott Cunningham’s MixtapeTools</a> · <a href="https://meleantonio.github.io/awesome-econ-ai-stuff/">Antonio Mele’s Awesome Econ AI Stuff</a></li>
+          <li>Web development: <a href="https://github.com/streamlit/agent-skills">Streamlit skills</a> · <a href="https://github.com/vercel-labs/agent-skills">Vercel skills for React and Next.js</a></li>
+        </ul>
+      </section>
       <nav class="page-next" aria-label="Next page">
         <a class="button" href="./planner.html">Continue to Planner</a>
       </nav>

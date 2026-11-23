@@ -32,12 +32,14 @@ p { margin-bottom: 1rem; }
 .skip-link:focus { transform: translateY(0); }
 .site-header { background: var(--surface); border-bottom: 1px solid var(--border); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-block: 1.25rem; }
-.brand { color: var(--ink); font-weight: 800; text-decoration: none; font-size: 1.2rem; }
-.brand span { margin-left: 0.6rem; color: var(--muted); font-size: 0.875rem; font-weight: 500; }
+.brand { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; max-width: 100%; color: var(--ink); font-weight: 800; text-decoration: none; font-size: 1.2rem; }
+.brand-logo { display: block; width: 10.5rem; max-width: 100%; height: auto; }
+.brand span { color: var(--muted); font-size: 0.875rem; font-weight: 500; }
 nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 nav a { color: var(--muted); font-size: 0.95rem; font-weight: 600; }
 nav a[aria-current="page"] { color: var(--accent); text-decoration-thickness: 0.15em; }
 .hero { display: grid; grid-template-columns: 1.45fr 1fr; align-items: center; gap: 3rem; padding-block: 4.5rem 3rem; }
+.intro-logo { display: block; width: 20rem; max-width: 100%; height: auto; margin-bottom: 2rem; }
 .eyebrow { margin-bottom: 0.8rem; color: var(--accent); font-size: 0.875rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
 .lead { font-size: 1.2rem; font-weight: 600; }
 .hero > div > p:not(.eyebrow):not(.lead) { color: var(--muted); }
@@ -104,7 +106,7 @@ textarea { display: block; width: 100%; min-height: 12rem; padding: 1rem; resize
 
 @media (max-width: 26rem) {
   .container { width: calc(100% - 2rem); }
-  .brand span { display: block; margin-left: 0; }
+  .brand span { flex-basis: 100%; }
   .prompt-card, .session-card, .folder-tree { padding: 1.1rem; }
   .glossary > div { grid-template-columns: 1fr; gap: 0.25rem; }
   .page-header { padding-block: 2.5rem 1.5rem; }

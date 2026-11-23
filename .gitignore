@@ -13,3 +13,9 @@ presentation/
 
 # Local agent working storage (retained at the repository root)
 /.agent-work/
+
+# Repository-root local skills, mirrored for Codex and Claude Code.
+/.agents/skills/local-keynote-design
+/.claude/skills/local-keynote-design
+/.agents/skills/skill-authorization
+/.claude/skills/skill-authorization

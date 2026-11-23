@@ -20,6 +20,10 @@ lives in `site/assets/styles.css`; prompt-copy behavior lives in
 `site/assets/script.js`. The HTML files are the maintained source; no generator
 or build step is needed to edit them.
 
+The shared header and Intro hero use `site/assets/uzh-ai-students-logo.svg`.
+It retains the supplied association artwork with a horizontal 825 × 274
+viewport. Preserve its aspect ratio and artwork when resizing it.
+
 Use as few headings and subheadings as possible. Remove sentences that merely
 restate adjacent content, navigation, or controls. Keep explanations only when
 they help the participant make a decision or take an action. Exercise pages

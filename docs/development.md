@@ -46,9 +46,10 @@ when inserting them into HTML, including inside textareas.
 
 ## Add downloads
 
-The Files section contains exactly two final PDFs in `site/downloads/`:
-`intro_agentic_ai.pdf` labelled “Presentation (Original)” and
-`intro_agentic_ai_blue.pdf` labelled “Presentation (AI-improved)”. Their
+The Files section contains exactly three final PDFs in `site/downloads/`:
+`intro_agentic_ai.pdf` labelled “Presentation (Original)”,
+`intro_agentic_ai_blue.pdf` labelled “Presentation (Codex-improved)” and
+`intro_agentic_ai_blue_columns.pdf` labelled “Presentation (Claude-improved)”. Their
 authoritative editable sources have the same stems in `presentation/final/`.
 For authorized deck changes, export from those exact sources and refresh both
 the public PDFs and their byte-identical local copies in `presentation/final/`.

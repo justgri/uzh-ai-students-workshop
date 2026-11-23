@@ -1,12 +1,13 @@
 # Public workshop downloads
 
-The website's Files section contains exactly two final presentation downloads,
+The website's Files section contains exactly three final presentation downloads,
 selected by the user on 23 November 2026:
 
 | Label | Public PDF | Authoritative Keynote source |
 | --- | --- | --- |
 | Presentation (Original) | [intro_agentic_ai.pdf](intro_agentic_ai.pdf) | `presentation/final/intro_agentic_ai.key` |
-| Presentation (AI-improved) | [intro_agentic_ai_blue.pdf](intro_agentic_ai_blue.pdf) | `presentation/final/intro_agentic_ai_blue.key` |
+| Presentation (Codex-improved) | [intro_agentic_ai_blue.pdf](intro_agentic_ai_blue.pdf) | `presentation/final/intro_agentic_ai_blue.key` |
+| Presentation (Claude-improved) | [intro_agentic_ai_blue_columns.pdf](intro_agentic_ai_blue_columns.pdf) | `presentation/final/intro_agentic_ai_blue_columns.key` |
 
 These exports contain 44 slides each. Keep the filenames and
 labels stable. Export future authorized changes from the relevant final

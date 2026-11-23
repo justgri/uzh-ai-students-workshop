@@ -9,8 +9,9 @@ room **SOE-E-02**.
 Five static pages cover Intro, Tech, Basics, Planner, and Research. Exercise
 prompts use bracketed placeholders for participants' inputs. Intro presents
 four separate sections: motivation, agent harness, agentic AI vocabulary,
-and tech vocabulary. Files offers the final [Presentation (Original)](site/downloads/intro_agentic_ai.pdf)
-and [Presentation (AI-improved)](site/downloads/intro_agentic_ai_blue.pdf) PDFs.
+and tech vocabulary. Files offers the final [Presentation (Original)](site/downloads/intro_agentic_ai.pdf),
+[Presentation (Codex-improved)](site/downloads/intro_agentic_ai_blue.pdf) and
+[Presentation (Claude-improved)](site/downloads/intro_agentic_ai_blue_columns.pdf) PDFs.
 
 ## Repository map
 

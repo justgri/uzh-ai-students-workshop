@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Give an agent a clear workspace, small tasks, and visible checks.">
+    <meta name="description" content="Plan one journey, inspect the result, and learn to give an agent useful context.">
     <title>Basics · Agentic AI workshop · UZH.ai</title>
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="./assets/script.js" defer></script>
@@ -25,90 +25,138 @@
     <main id="main" class="container">
       <header class="page-header">
         <h1>Basics</h1>
-        <p class="lead">Give an agent a clear workspace, small tasks, and visible checks.</p>
+        <p class="lead">Give an agent a small job and make its work easy to check.</p>
+        <dl class="page-overview">
+          <div><dt>Task</dt><dd>Research a fictional train journey and save a useful comparison.</dd></div>
+          <div><dt>Learn</dt><dd>Write instructions, check sources, inspect changes and continue in a new session.</dd></div>
+          <div><dt>Workflow</dt><dd>Set context → look up → inspect → improve → hand off.</dd></div>
+        </dl>
       </header>
 
-      <dl class="glossary">
-        <div><dt>Agent harness</dt><dd>The app around the model that manages files, tools, permissions, and the working session.</dd></div>
-        <div><dt>Context</dt><dd>Information available to the agent for the current task, drawn from the conversation, instructions, relevant files, and tool results.</dd></div>
-        <div><dt>Instructions</dt><dd>Project rules loaded by the harness, usually in <code>AGENTS.md</code> or <code>CLAUDE.md</code>.</dd></div>
-        <div><dt>Skills</dt><dd>Reusable procedures in a folder containing <code>SKILL.md</code>, with supporting files when needed.</dd></div>
-        <div><dt>Tools</dt><dd>Actions an agent can call, including access to other software. Workshop examples: Canva designs and reading a Google Calendar schedule.</dd></div>
-        <div><dt>Hooks</dt><dd>Configured actions triggered by events, such as before a tool call. Written instructions alone do not activate them.</dd></div>
-        <div><dt>Computer use</dt><dd>Working with an app through its screen, mouse, and keyboard. Possible demo: making the workshop poster in MS Paint.</dd></div>
-        <div><dt>Worklogs</dt><dd>An append-only record of decisions, changes, commands, and observed checks.</dd></div>
-        <div><dt>Agent handoffs</dt><dd>Saved context for continuing work: current state, evidence, open questions, and the next action.</dd></div>
-        <div><dt>Documentation</dt><dd>Durable explanations of the project, its structure, how to use it, and how to check it.</dd></div>
-      </dl>
       <ol class="steps">
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="basics-prompt-1-title">Define the job</h2>
-            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-1" aria-label="Copy define the job prompt" hidden>Copy prompt</button>
+            <h2 id="basics-prompt-1-title">Set the context</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-1" aria-label="Copy set the context prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" rows="8" readonly spellcheck="false">Help me start [PROJECT_NAME] for [AUDIENCE].
-Goal: [DESIRED_RESULT]. Inputs you may use: [APPROVED_FILES_OR_SYNTHETIC_DATA].
-Constraints: [TIME_BUDGET_AND_BOUNDARIES]. Success means: [OBSERVABLE_CHECK].
-
-Read the existing project instructions first. Summarize the goal, propose
-a small plan, and ask only questions that block progress. Keep existing
-access restrictions. Do not edit files yet.</textarea>
+          <p id="basics-prompt-1-note" class="prompt-note">Give the project lasting rules, using a name such as weekend-trips and your chosen harness, Codex or Claude Code.</p>
+          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" aria-describedby="basics-prompt-1-note" rows="6" readonly spellcheck="false">Create a minimal trip-planning folder called [PROJECT_NAME] for [HARNESS]. Use subfolders with short README files, a search log and one Markdown table per journey. Write the project instructions with a simple file map, source-checking rules and a rule to leave a worklog and handoff. Use fictional plans and public information only; do not book or buy anything.</textarea>
+          <aside class="checkpoint">
+            <p><strong>Inspect.</strong> Open the folder in VS Code and find the instructions: <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code; check that the structure is easy to understand.</p>
+          </aside>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="basics-prompt-2-title">Scaffold the repo</h2>
-            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-2" aria-label="Copy scaffold the repo prompt" hidden>Copy prompt</button>
+            <h2 id="basics-prompt-2-title">Look up a journey</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-2" aria-label="Copy look up a journey prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="basics-prompt-2" aria-labelledby="basics-prompt-2-title" rows="8" readonly spellcheck="false">Prepare [REPO_NAME] for this plan using [CHOSEN_HARNESS].
-Create only the missing pieces: README.md, the instruction file this
-harness loads, docs/architecture.md, docs/development.md, and WORKLOG.md.
-Keep a small folder structure and document how to use and check it.
-
-State approved inputs, allowed changes, review points, and stop conditions
-in the instructions. Ignore secrets, local caches, and .agent-work/.
-Preserve existing content. Do not stage, commit, or publish.</textarea>
+          <p id="basics-prompt-2-note" class="prompt-note">Try a route such as Zurich to Bern on your chosen date, adding preferences such as second class with a Half Fare Travelcard.</p>
+          <textarea id="basics-prompt-2" aria-labelledby="basics-prompt-2-title" aria-describedby="basics-prompt-2-note" rows="5" readonly spellcheck="false">Look up [ROUTE] on [DATE], leaving around [TIME], with [TICKET_PREFERENCES]. Save a short Markdown comparison with source links, the lookup date and any fare assumptions, and add the searches to our log. Use official sources where possible and clearly mark anything you could not verify.</textarea>
+          <aside class="checkpoint">
+            <p><strong>Inspect.</strong> Open the Markdown preview and a cited source; check one departure time or price, including its date and discount assumptions.</p>
+          </aside>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="basics-prompt-3-title">Complete one small task</h2>
-            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-3" aria-label="Copy complete one small task prompt" hidden>Copy prompt</button>
+            <h2 id="basics-prompt-3-title">Give feedback</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-3" aria-label="Copy give feedback prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="basics-prompt-3" aria-labelledby="basics-prompt-3-title" rows="8" readonly spellcheck="false">Complete [SMALL_TASK] using [APPROVED_INPUT].
-First name the files you expect to change and how you will check the result.
-Then make the smallest useful change and run those checks.
-
-Show the result for my review. Record the commands, observed outcomes,
-and remaining uncertainty in WORKLOG.md. Add a small workflow diagram
-to docs/architecture.md. Ask before expanding the scope.</textarea>
+          <p id="basics-prompt-3-note" class="prompt-note">Improve the result with ordinary feedback, such as adding journey duration or making the table easier to scan.</p>
+          <textarea id="basics-prompt-3" aria-labelledby="basics-prompt-3-title" aria-describedby="basics-prompt-3-note" rows="4" readonly spellcheck="false">Update the journey comparison based on this feedback: [MY_FEEDBACK]. Keep the sources and uncertainty visible, and record the change in the worklog.</textarea>
+          <aside class="checkpoint">
+            <p><strong>Inspect.</strong> Compare the changed lines in VS Code with your request; decide whether the correction belongs only to this journey or should become a project rule.</p>
+          </aside>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="basics-prompt-4-title">Turn a checked procedure into a skill</h2>
-            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-4" aria-label="Copy turn a checked procedure into a skill prompt" hidden>Copy prompt</button>
+            <h2 id="basics-prompt-4-title">Leave a handoff</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-4" aria-label="Copy leave a handoff prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="basics-prompt-4" aria-labelledby="basics-prompt-4-title" rows="8" readonly spellcheck="false">Package the successful [PROCEDURE] as a small skill for [CHOSEN_HARNESS].
-Use its supported skill location and SKILL.md format. Include inputs,
-steps, outputs, and checks. Test it on [SECOND_SYNTHETIC_CASE].
-
-Separately propose a hook for [HARMLESS_CHECK_COMMAND]. Explain where
-it must be configured. Only call it active after configuration, required
-trust, and a live test with synthetic files have been observed.
-Show the skill and test evidence for review before reusing it broadly.</textarea>
-        </li>
-        <li class="prompt-card">
-          <div class="prompt-heading">
-            <h2 id="basics-prompt-5-title">Leave a handoff</h2>
-            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-5" aria-label="Copy leave a handoff prompt" hidden>Copy prompt</button>
-          </div>
-          <textarea id="basics-prompt-5" aria-labelledby="basics-prompt-5-title" rows="8" readonly spellcheck="false">Prepare a handoff for continuing [PROJECT_NAME] in another agent session.
-Save it in docs/handoff.md with the goal, completed work, checks and
-evidence, unresolved questions, relevant file links, and one next action.
-
-Update WORKLOG.md and the usage documentation. Separate verified results
-from proposed work. Link to existing information instead of copying it.</textarea>
+          <p id="basics-prompt-4-note" class="prompt-note">Save enough context to continue later, with a next step such as comparing the return journey.</p>
+          <textarea id="basics-prompt-4" aria-labelledby="basics-prompt-4-title" aria-describedby="basics-prompt-4-note" rows="4" readonly spellcheck="false">Save a short handoff with our goal, completed work, useful file links and remaining uncertainty. Update the worklog and set [NEXT_STEP] as the next action.</textarea>
+          <aside class="checkpoint">
+            <p><strong>Try it.</strong> Start a fresh chat in this project and ask it to read the instructions and handoff, then summarize where to continue; check its answer against the files.</p>
+          </aside>
         </li>
       </ol>
+
+      <details class="exercise-extension">
+        <summary>Go further</summary>
+        <p class="inline-note">Try these after the first journey works, or follow the instructor's demonstration.</p>
+        <ol class="steps" start="5">
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="basics-prompt-5-title">Compare reasoning</h2>
+              <button type="button" class="button button-secondary" data-copy-target="basics-prompt-5" aria-label="Copy compare reasoning prompt" hidden>Copy prompt</button>
+            </div>
+            <p id="basics-prompt-5-note" class="prompt-note">Use the same saved information at two supported reasoning settings to compare speed and quality.</p>
+            <textarea id="basics-prompt-5" aria-labelledby="basics-prompt-5-title" aria-describedby="basics-prompt-5-note" rows="4" readonly spellcheck="false">Using [SAVED_JOURNEY_INFORMATION], make a comparison focused on [MY_PREFERENCE] and save it as [OUTPUT_FILE]. Use only this information so I can compare the same task at two reasoning settings.</textarea>
+            <aside class="checkpoint">
+              <p><strong>Try it.</strong> Run the prompt at two effort settings in the harness, using different output filenames; record the model, settings and time, then compare accuracy and usefulness.</p>
+            </aside>
+          </li>
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="basics-prompt-6-title">Work in parallel</h2>
+              <button type="button" class="button button-secondary" data-copy-target="basics-prompt-6" aria-label="Copy work in parallel prompt" hidden>Copy prompt</button>
+            </div>
+            <p id="basics-prompt-6-note" class="prompt-note">Ask one chat to coordinate parallel work, for example comparing the same saved journey options at two supported reasoning settings.</p>
+            <textarea id="basics-prompt-6" aria-labelledby="basics-prompt-6-title" aria-describedby="basics-prompt-6-note" rows="5" readonly spellcheck="false">Use two parallel sessions for [SMALL_TASK] with [SAVED_INPUT] at [REASONING_SETTINGS]. Keep each session’s outputs and logs in its own folder under ignored .agent-work/, leaving shared files unchanged. Record the model, effort and elapsed time, then bring the results back for comparison. If the harness cannot launch sessions or set their effort, give me two task briefs to run manually.</textarea>
+            <aside class="checkpoint">
+              <p><strong>Inspect.</strong> Compare the two results, then let the coordinating chat update the shared records; notice that project files can be shared while conversations have separate context.</p>
+            </aside>
+          </li>
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="basics-prompt-7-title">Make a skill</h2>
+              <button type="button" class="button button-secondary" data-copy-target="basics-prompt-7" aria-label="Copy make a skill prompt" hidden>Copy prompt</button>
+            </div>
+            <p id="basics-prompt-7-note" class="prompt-note">Reuse the procedure you have checked, with another journey such as a return trip to Zurich.</p>
+            <textarea id="basics-prompt-7" aria-labelledby="basics-prompt-7-title" aria-describedby="basics-prompt-7-note" rows="4" readonly spellcheck="false">Turn our checked journey-lookup procedure into a small skill for [HARNESS]. Include the inputs, source checks and comparison format, then try it on [ANOTHER_JOURNEY]. Keep it labelled as a draft until we have reviewed the result.</textarea>
+            <aside class="checkpoint">
+              <p><strong>Inspect.</strong> Open <code>SKILL.md</code> and the new result; separate reusable steps from preferences that belong in the project instructions.</p>
+            </aside>
+          </li>
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="basics-prompt-8-title">Test a guardrail</h2>
+              <button type="button" class="button button-secondary" data-copy-target="basics-prompt-8" aria-label="Copy test a guardrail prompt" hidden>Copy prompt</button>
+            </div>
+            <p id="basics-prompt-8-note" class="prompt-note">Follow a synthetic demonstration of folder protection using a fake ticket rather than any real private file.</p>
+            <textarea id="basics-prompt-8" aria-labelledby="basics-prompt-8-title" aria-describedby="basics-prompt-8-note" rows="6" readonly spellcheck="false">Create a synthetic private-demo/ folder with a fake ticket and ignore it in Git. Add instructions that forbid reading, searching or previewing its contents and require accidental access to be reported in bold without quoting the contents. Configure a hook for [HARNESS] and demonstrate one allowed action and one blocked read using only fake data. State which tool path was tested and what the hook does not cover.</textarea>
+            <aside class="checkpoint">
+              <p><strong>Inspect.</strong> Check the observed block: instructions guide behaviour, <code>.gitignore</code> excludes untracked files from Git, and a trusted hook can block covered tool actions.</p>
+              <p>Download-only access needs a separately checked transfer workflow; use a prepared fake ticket here.</p>
+            </aside>
+          </li>
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="basics-prompt-9-title">Keep work local</h2>
+              <button type="button" class="button button-secondary" data-copy-target="basics-prompt-9" aria-label="Copy keep work local prompt" hidden>Copy prompt</button>
+            </div>
+            <p id="basics-prompt-9-note" class="prompt-note">Use global instructions for habits you want across projects, such as keeping working files in each project’s ignored .agent-work/ folder instead of temporary folders.</p>
+            <textarea id="basics-prompt-9" aria-labelledby="basics-prompt-9-title" aria-describedby="basics-prompt-9-note" rows="4" readonly spellcheck="false">Add this rule to my global instructions for [HARNESS]: [WORKSPACE_RULE]. Keep existing rules and show me where the update is saved. Explain how this differs from the instructions inside our trip project.</textarea>
+            <aside class="checkpoint">
+              <p><strong>Compare.</strong> Find the global and project instruction files; decide which preferences belong everywhere and which belong only to this project.</p>
+            </aside>
+          </li>
+        </ol>
+      </details>
+
       <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <details class="exercise-reference">
+        <summary>Vocabulary</summary>
+        <dl class="glossary">
+          <div><dt>Harness</dt><dd>The app around the model that manages tools, permissions and the session.</dd></div>
+          <div><dt>Context</dt><dd>The information supplied for the task, including conversation, instructions, relevant files and tool results.</dd></div>
+          <div><dt>Instructions</dt><dd>Standing project guidance, such as <code>AGENTS.md</code> or <code>CLAUDE.md</code>.</dd></div>
+          <div><dt>Skill</dt><dd>A reusable procedure in a folder containing <code>SKILL.md</code>.</dd></div>
+          <div><dt>Hook</dt><dd>A configured check triggered by an event, such as before a tool call.</dd></div>
+          <div><dt>Tool</dt><dd>An action an agent can call, such as searching online or reading a selected calendar.</dd></div>
+          <div><dt>Computer use</dt><dd>Working with an app through its screen, mouse and keyboard.</dd></div>
+          <div><dt>Worklog / handoff</dt><dd>A record of changes and saved context for continuing in another session.</dd></div>
+        </dl>
+      </details>
       <section id="references" class="section" aria-labelledby="references-title">
         <h2 id="references-title">Skills to explore</h2>
         <ul class="reference-list">

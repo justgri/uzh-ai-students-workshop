@@ -29,6 +29,12 @@ restate adjacent content, navigation, or controls. Keep explanations only when
 they help the participant make a decision or take an action. Exercise pages
 lead with one main idea, then action steps and prompts with bracketed inputs.
 
+Keep each exercise prompt to two to four sentences. Use a few-word purpose
+title, one grey sentence with a natural example, and a short inspection task
+after the prompt. Page introductions summarize Task, Learn and Workflow;
+optional steps belong under “Go further.” Avoid turning simple context setup
+into a long list of prompting rules.
+
 Keep the five navigation links and the current-page marker consistent. Root
 links to a supporting page begin `./site/`; links between supporting pages use
 `./`, and links back to Intro use `../index.html`.

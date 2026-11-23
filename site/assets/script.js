@@ -2,6 +2,20 @@
 
 const copyStatus = document.getElementById("copy-status");
 
+function fitPrompts() {
+  document.querySelectorAll("textarea[readonly]").forEach((field) => {
+    if (field.getClientRects().length === 0) return;
+    field.style.height = "auto";
+    field.style.height = `${field.scrollHeight + 2}px`;
+  });
+}
+
+fitPrompts();
+window.addEventListener("resize", fitPrompts);
+document.querySelectorAll("details").forEach((section) => {
+  section.addEventListener("toggle", fitPrompts);
+});
+
 document.querySelectorAll("button[data-copy-target]").forEach((button) => {
   const field = document.getElementById(button.dataset.copyTarget);
   if (!field || !copyStatus) return;

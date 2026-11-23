@@ -14,19 +14,22 @@ For the optional local dashboard, the proposed default is plain HTML/CSS/JavaScr
 
 ## Current presentation
 
+**Live final edits, 23 November:** the user is still editing `presentation/final/intro_agentic_ai.key`; source positions 1–29 were declared ready. A separate captured copy is `presentation/final/intro_agentic_ai_ready_snapshot.key`. The latest blue outputs at `presentation/final/intro_agentic_ai_blue.{key,pdf}` contain 45 captured slides, with only 1–29 styled and 30–45 retained as draft content. See the incremental section of `presentation/final/blue-style-changes.md` and its matching blue transcript. The 42-slide content PDF/transcript below describe the earlier content pass, not subsequent live source edits. Inspect the current native source before any later synchronization; never overwrite the user's active source from an older snapshot/export.
+
 Use these files for the latest presentation, updated on **23 November 2026**:
 
-- [Keynote deck](presentation/intro_agentic_ai.key): editable presentation source.
-- [PDF export](presentation/work/intro_agentic_ai_logo_2026-11-23.pdf): matching 42-slide revision, including the title-page association logo and basic topic/demo placeholders.
-- [Markdown transcript](presentation/work/intro_agentic_ai_logo_2026-11-23_transcript.md): all 42 slides in order, original links and 23 figure/diagram descriptions.
-- [Slide update map](presentation/work/intro_agentic_ai_update_map_2026-11-23.md): exact original-to-current numbers, additions, updates, removals and remaining prep.
+- [Keynote deck](presentation/final/intro_agentic_ai.key): editable final content copy, preserving the original source at `presentation/intro_agentic_ai.key`.
+- [PDF export](presentation/final/intro_agentic_ai.pdf): matching 42-slide content revision with the association logo, concise topic text and three new screenshots.
+- [Markdown transcript](presentation/final/intro_agentic_ai_transcript.md): all 42 slides in order, original links and 26 figure/diagram descriptions.
+- [Final slide changes](presentation/final/slide-changes.md): exact before/after text for edits to 17, 21, 22, 25, 26, 27, 30, 35, 38 and 39; no slides added or removed in this pass.
+- [Last-hour review](presentation/final/pre-workshop-review.md) and [blue styling handoff](presentation/final/styling-handoff.md): remaining prep and the separately requested design pass. A styled output is not authoritative until reviewed.
 - [Presentation TODOs](presentation/work/presentation-todo.md): requested additions for the next deck revision, including the key context-engineering slide on sessions and leaving a trace of agent work.
 
 The earlier `presentation/intro_agentic_ai.pdf` and `presentation/work/intro_agentic_ai_transcript.md` are historical 38-slide exports. The source immediately before the content pass had 40 slides; its backup is `presentation/work/intro_agentic_ai_before_2026-11-23.key`. The 42-slide state before adding the logo is backed up at `presentation/work/intro_agentic_ai_before_logo_2026-11-23.key`. A matching current editable revision is retained at `presentation/work/intro_agentic_ai_logo_2026-11-23.key`; the earlier `intro_agentic_ai_updated_2026-11-23` revision predates the logo. Do not substitute the older blue variants or Claude Artifacts PDF for this current content.
 
 Start with the transcript for text reference and inspect the PDF for visual details. These files take precedence over older slide proposals in the planning documents. The transcript is derived from the PDF; keep the export and transcript aligned when updating the deck. Planning documents still govern workshop scope, commitments and open decisions.
 
-Keep all further presentation-related work inside `presentation/work/`: drafts, revisions, speaker notes, figure descriptions, assets, revised decks and PDF exports, previews, checks and outputs. Reusable skill packages are the exception: the user's root-skill rule below puts their complete Codex and Claude Code copies in the repository-root skill folders. Use the existing presentation files above as inputs and save new versions in this folder; update the current-file links when a new version becomes authoritative.
+Keep general presentation work inside `presentation/work/`. The user's explicit November 23 final-copy request puts the final content deck, its exports/review notes and the requested blue revision in `presentation/final/`, and new reference images in `presentation/images/used/`. Reusable skill packages are another exception: the user's root-skill rule below puts their complete Codex and Claude Code copies in the repository-root skill folders. Update current-file links when a new version becomes authoritative. The user's slide-copy preference is concise, minimal text without colon-led labels.
 
 For presentation tasks, put disposable scratch in `presentation/work/.agent-work/scratch/<date>-<task>/` and retained helpers in `presentation/work/.agent-work/reusable/<workflow>/`. These locations replace the repository-root `.agent-work/` defaults for presentation work. Apply the same file classification, ignore verification, usage-note and cleanup rules within this folder.
 

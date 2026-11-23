@@ -9,9 +9,9 @@ dependencies, external assets, backend, or database.
 | --- | --- |
 | `index.html` | Intro: session details, outline, and download links |
 | `site/tech.html` | Software, download links, and workshop subscription requirement |
-| `site/basics.html` | Agent terminology and repository-setup prompts |
-| `site/planner.html` | Synthetic planner structure, skills, dashboard, and publishing prompts |
-| `site/research.html` | Research PRD, reviewed pilots, skill validation, and bounded-loop prompts |
+| `site/basics.html` | Train-research warm-up, inspection and handoff; optional reasoning, parallel work, instructions, skill and synthetic-hook exercises |
+| `site/planner.html` | Synthetic second brain, planning skill and updates; optional read-only calendar, meetings and local dashboard |
+| `site/research.html` | Cumulative 1 → 3 → 5 calibration; optional 20-case pilot, skill validation and bounded automation |
 | `site/assets/styles.css` | Layout, colors, keyboard focus, and responsive styles |
 | `site/assets/script.js` | Prompt copy buttons and manual-copy fallback |
 | `site/downloads/` | Files deliberately selected for public download |
@@ -23,6 +23,14 @@ CSS from `site/assets/`; the pages in `site/` use `assets/`. Exercise pages also
 load the shared copy script. Download links request a specific file from
 `site/downloads/`. Prompts are stored once, in read-only textareas on Basics,
 Planner, and Research; JavaScript copies that same text.
+
+Exercise pages begin with Task / Learn / Workflow, followed by short prompt
+cards with a purpose, a grey explanatory example and a human inspection step.
+Prompts contain two to four sentences. Later-stage work is grouped under
+“Go further”; the Planner scaffold and Basics glossary are expandable.
+Textareas fit their content on load, resize and expansion, while retaining
+manual resizing and no-JavaScript access. Unknown participant inputs and the
+instructor's public planning-skill URL remain bracketed placeholders.
 
 Copying uses the browser's Clipboard API when available. If access is denied
 or unavailable, the script selects the prompt and explains how to copy it

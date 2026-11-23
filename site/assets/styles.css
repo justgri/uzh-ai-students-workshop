@@ -72,6 +72,14 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .page-header { max-width: 52rem; padding-block: 3.5rem 2rem; }
 .page-header h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
 .page-header .lead { margin-bottom: 0; color: var(--muted); font-weight: 400; }
+.page-overview { display: grid; gap: 0.65rem; margin-top: 1.5rem; }
+.page-overview > div { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 0.75rem; }
+.page-overview > div + div { margin-top: 0; }
+.page-overview dt { color: var(--ink); font-size: 1rem; font-weight: 700; }
+.page-overview dd { color: var(--muted); }
+.workflow-map { margin: 0 0 1.75rem; padding-block: 1rem; border-block: 1px solid var(--border); }
+.workflow-map > div { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 0.85rem; font-weight: 650; }
+.workflow-map figcaption { margin-top: 0.65rem; color: var(--muted); font-size: 0.95rem; }
 .glossary { margin: 0 0 2.5rem; }
 .glossary > div { display: grid; grid-template-columns: 10rem 1fr; gap: 0.5rem 1.5rem; padding-block: 0.85rem; border-bottom: 1px solid var(--border); }
 .glossary > div + div { margin-top: 0; }
@@ -79,11 +87,19 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .glossary dd { color: var(--muted); }
 .steps { display: grid; gap: 1.25rem; margin: 0; padding: 0; list-style: none; counter-reset: step; }
 .prompt-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: 0.85rem; background: var(--surface); min-width: 0; counter-increment: step; }
-.prompt-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.prompt-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.65rem 1rem; margin-bottom: 0.45rem; }
 .prompt-heading h2 { margin-bottom: 0; font-size: 1.2rem; letter-spacing: 0; }
-.prompt-heading h2::before { content: counter(step) ". "; color: var(--muted); }
 .prompt-heading .button { flex-shrink: 0; }
-textarea { display: block; width: 100%; min-height: 12rem; padding: 1rem; resize: vertical; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--background); color: var(--ink); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.95rem; line-height: 1.65; }
+.prompt-note { margin-bottom: 0.85rem; color: #5a6372; font-size: 0.95rem; }
+textarea { display: block; width: 100%; min-height: 6.25rem; padding: 1rem; resize: vertical; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--background); color: var(--ink); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 1rem; line-height: 1.65; }
+.checkpoint { margin-top: 1rem; padding-left: 0.85rem; border-left: 2px solid var(--border); font-size: 0.95rem; }
+.checkpoint p { margin: 0; }
+.checkpoint > strong { display: block; margin-bottom: 0.2rem; }
+.checkpoint p + p { margin-top: 0.5rem; color: var(--muted); }
+.exercise-extension, .exercise-reference { margin-block: 1.75rem; }
+.exercise-extension > summary, .exercise-reference > summary { width: fit-content; max-width: 100%; padding-block: 0.5rem; cursor: pointer; font-weight: 700; }
+.exercise-extension[open] > summary, .exercise-reference[open] > summary { margin-bottom: 0.75rem; }
+.exercise-reference .glossary { margin-bottom: 0; }
 .folder-tree { margin: 0 0 1rem; padding: 1.5rem; overflow-x: auto; border: 1px solid var(--border); border-radius: 0.85rem; background: var(--surface); font-size: 0.95rem; line-height: 1.65; }
 .inline-note { margin-bottom: 2rem; color: var(--muted); }
 .setup-list { margin: 0 0 2rem; }
@@ -109,5 +125,6 @@ textarea { display: block; width: 100%; min-height: 12rem; padding: 1rem; resize
   .brand span { flex-basis: 100%; }
   .prompt-card, .session-card, .folder-tree { padding: 1.1rem; }
   .glossary > div { grid-template-columns: 1fr; gap: 0.25rem; }
+  .page-overview > div { grid-template-columns: 1fr; gap: 0.15rem; }
   .page-header { padding-block: 2.5rem 1.5rem; }
 }

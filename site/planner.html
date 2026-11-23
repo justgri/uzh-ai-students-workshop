@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Keep projects, next actions, and reusable workflows in a small Markdown repository.">
+    <meta name="description" content="Build a small second brain, plan your next actions, and keep context across agent sessions.">
     <title>Planner · Agentic AI workshop · UZH.ai</title>
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="./assets/script.js" defer></script>
@@ -25,104 +25,131 @@
     <main id="main" class="container">
       <header class="page-header">
         <h1>Planner</h1>
-        <p class="lead">Keep projects, next actions, and reusable workflows in a small Markdown repository.</p>
+        <p class="lead">Build a second brain that helps you pick up where you left off.</p>
+        <dl class="page-overview">
+          <div><dt>Task</dt><dd>Create a small home for projects, notes and plans.</dd></div>
+          <div><dt>Learn</dt><dd>Organize context, reuse a skill and keep project state across sessions.</dd></div>
+          <div><dt>Workflow</dt><dd>Set up → plan → capture an update → review → resume.</dd></div>
+        </dl>
       </header>
-      <pre class="folder-tree"><code>planner/
+      <p>A second brain keeps useful context in linked notes you can inspect and maintain with an agent, inspired by <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy’s LLM Wiki</a>.</p>
+      <figure class="workflow-map">
+        <div><span>Capture a note</span><span aria-hidden="true">→</span><span>Update a project</span><span aria-hidden="true">→</span><span>Choose a next action</span></div>
+        <figcaption>Project notes hold the facts; planning views link back to them.</figcaption>
+      </figure>
+      <details class="exercise-reference">
+        <summary>Example structure</summary>
+        <p class="prompt-note">Start with three fictional projects; add folders and planning views when you need them.</p>
+        <pre class="folder-tree"><code>planner/
 ├── README.md
-├── AGENTS.md
-├── WORKLOG.md
-├── projects/
-│   ├── README.md             # Project index
-│   └── study-demo/
-│       ├── project.md
-│       ├── tasks.md
-│       └── notes.md
-├── inbox/
-├── reviews/
-├── docs/
-└── .agent-work/              # Ignored local working files</code></pre>
-      <p class="inline-note">Synthetic example. Use the instruction and skill locations supported by your harness.</p>
+├── AGENTS.md or CLAUDE.md
+├── FILE-INDEX.md
+├── HANDOFF.md
+├── 01-planning/
+│   ├── today.md
+│   ├── next-3-days.md
+│   ├── next-7-days.md
+│   └── longer-term.md
+├── 02-projects/
+│   ├── academic/       # Courses, research
+│   ├── professional/   # Internship
+│   ├── hobbies/        # Hiking, shows, running, social media
+│   ├── personal/       # Fictional finance and health projects
+│   └── probono/        # Voluntary projects
+├── 03-worklogs/
+│   └── timeline.md
+├── 04-second-brain/    # Reference notes
+└── 99-inbox/           # Notes to sort</code></pre>
+        <p class="prompt-note">Give content folders a short README and each project a note with its goal, current state and next action.</p>
+      </details>
       <ol class="steps">
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-1-title">Pick three example projects</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-1" aria-label="Copy pick three example projects prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-1-title">Start small</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-1" aria-label="Copy start small prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="8" readonly spellcheck="false">Design a small planning repo for [FICTIONAL_PERSON_OR_TEAM].
-Use these three synthetic projects: [PROJECT_ONE], [PROJECT_TWO],
-and [PROJECT_THREE]. Goals: [PLANNING_NEEDS].
-
-Propose how to capture notes, find project status, and choose a next action.
-Use invented tasks and dates. Do not import personal repositories,
-private records, or calendars.</textarea>
+          <p class="prompt-note">Choose a few projects to give the planner a purpose, such as a course assignment, an internship search and a hiking trip.</p>
+          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="4" readonly spellcheck="false">Help me build a small personal planner for [PROJECTS]. Use fictional details and folders for projects, plans, reference notes and an inbox. Create three project notes with a goal, current state and next action. Add a README and file index so we can find our way around.</textarea>
+          <div class="checkpoint"><p><strong>Inspect.</strong> Open the folder in VS Code and find each project’s next action; keep only the folders you understand.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-2-title">Create the project index</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-2" aria-label="Copy create the project index prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-2-title">Set the rules</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-2" aria-label="Copy set the rules prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="planner-prompt-2" aria-labelledby="planner-prompt-2-title" rows="8" readonly spellcheck="false">Create [PLANNER_REPO] with README.md, WORKLOG.md, the instruction file
-loaded by [CHOSEN_HARNESS], inbox/, reviews/, docs/, and projects/.
-Use projects/README.md as the project index.
-
-Give each synthetic project a projects/&lt;slug&gt;/ folder containing
-project.md, tasks.md, and notes.md. The index should link to each project
-and show its purpose, status, and next action. Keep Markdown authoritative.
-Put local working files in ignored .agent-work/. Do not publish anything.</textarea>
+          <p class="prompt-note">Save your working preferences as project instructions, for example keeping plans short and recording where updates came from.</p>
+          <textarea id="planner-prompt-2" aria-labelledby="planner-prompt-2-title" rows="4" readonly spellcheck="false">Create project instructions for [HARNESS] using my preferences: [PREFERENCES]. Keep project notes as the source of truth, link plans to them, and never assume a task is complete. Keep the structure index current, add short READMEs to content folders, and record meaningful updates in a worklog.</textarea>
+          <div class="checkpoint"><p><strong>Review.</strong> Read the instructions and change one rule to match how you want to work.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-3-title">Capture one note</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-3" aria-label="Copy capture one note prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-3-title">Borrow a skill</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-3" aria-label="Copy borrow a skill prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="planner-prompt-3" aria-labelledby="planner-prompt-3-title" rows="8" readonly spellcheck="false">Draft a capture-note skill for [PLANNER_REPO] in the location supported
-by [CHOSEN_HARNESS]. Try it on this synthetic note: [EXAMPLE_NOTE].
-
-Save an inbox item with the original note, source, capture date, proposed
-project, and next action. Preserve uncertainty and flag duplicates.
-Show me the result. Incorporate [MY_CORRECTIONS], then test the revised
-skill on [SECOND_EXAMPLE_NOTE].</textarea>
+          <p class="prompt-note">Reuse a planning workflow by inserting the instructor’s public GitHub skill link in place of the URL placeholder.</p>
+          <textarea id="planner-prompt-3" aria-labelledby="planner-prompt-3-title" rows="4" readonly spellcheck="false">Read the planning skill at [SKILL_URL], including its supporting files, and explain what it does before running it. Install the selected package locally for [HARNESS] and record its source version. Adapt its paths to this planner and show me how to invoke it.</textarea>
+          <div class="checkpoint"><p><strong>Inspect.</strong> Open SKILL.md and check that its steps and required access fit your project.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-4-title">Review projects and prepare a handoff</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-4" aria-label="Copy review projects and prepare a handoff prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-4-title">Make a plan</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-4" aria-label="Copy make a plan prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="planner-prompt-4" aria-labelledby="planner-prompt-4-title" rows="8" readonly spellcheck="false">Create weekly-review and project-handoff skills for [PLANNER_REPO].
-Review only [SELECTED_INBOX_ITEMS_AND_PROJECTS]. Propose updates to
-project status and next actions; save an approved review in reviews/.
-
-A handoff should link to current state, open questions, and the next action.
-Test both skills on [SYNTHETIC_PROJECT_SLUG]. Record my corrections and
-the observed checks. Do not change files outside the selected scope.</textarea>
+          <p class="prompt-note">Turn project context into a realistic plan, for example allowing two hours today and prioritizing a course deadline.</p>
+          <textarea id="planner-prompt-4" aria-labelledby="planner-prompt-4-title" rows="4" readonly spellcheck="false">Use the planning skill to suggest a plan from [DATE] for today, the next three days, the next seven days and longer term. My priorities and available time are [PRIORITIES_AND_TIME]. State the date windows, link actions to their project notes, and distinguish deadlines from suggested work dates.</textarea>
+          <div class="checkpoint"><p><strong>Think.</strong> Is the plan realistic, and can you trace each action to a project? Tell the agent what to shorten or reprioritize.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-5-title">Build a read-only view</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-5" aria-label="Copy build a read-only view prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-5-title">Capture an update</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-5" aria-label="Copy capture an update prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="planner-prompt-5" aria-labelledby="planner-prompt-5-title" rows="8" readonly spellcheck="false">Build a plain HTML/CSS/JavaScript dashboard for [PLANNER_REPO].
-Export only [EXPLICIT_FILE_ALLOWLIST] into a public-safe snapshot.
-Show the project index, selected files, and text previews.
-
-Keep Markdown as the source of truth and provide no editing controls.
-Use synthetic content. Check that excluded files cannot enter the export,
-that links work, and that the view works on a phone. Show the local result.</textarea>
+          <p class="prompt-note">Keep the planner current with a small update, such as finishing an outline while leaving the draft for tomorrow.</p>
+          <textarea id="planner-prompt-5" aria-labelledby="planner-prompt-5-title" rows="4" readonly spellcheck="false">Here is an update for [PROJECT]: [UPDATE]. Update its note, record the change in the worklog, and refresh the affected plans. Show me what changed and leave uncertain details as questions.</textarea>
+          <div class="checkpoint"><p><strong>Inspect.</strong> Review the diff in VS Code: is the right project updated, is its next action useful, and were unrelated notes left alone? Try a second update after giving feedback.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-6-title">Publish and verify one update</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-6" aria-label="Copy publish and verify one update prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-6-title">Pick up later</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-6" aria-label="Copy pick up later prompt" hidden>Copy prompt</button>
           </div>
-          <textarea id="planner-prompt-6" aria-labelledby="planner-prompt-6-title" rows="8" readonly spellcheck="false">Prepare the dashboard for [APPROVED_HOSTING_ROUTE].
-List the exact public files and the deployment steps for my approval.
-Do not publish until I authorize it.
-
-After an authorized deployment, update [SYNTHETIC_SOURCE_FILE], regenerate
-the selected snapshot, and verify the visible change at [LIVE_URL].
-Record what you actually observed; label anything untested as unverified.</textarea>
+          <p class="prompt-note">Leave enough context for the next session to continue, such as the current priorities and an unresolved deadline.</p>
+          <textarea id="planner-prompt-6" aria-labelledby="planner-prompt-6-title" rows="4" readonly spellcheck="false">Save a short HANDOFF.md with the current priorities, recent changes, open questions and next action. Link to the relevant project notes and plans. Keep it brief enough to read at the start of another session.</textarea>
+          <div class="checkpoint"><p><strong>Try it.</strong> Open a fresh chat in this project and ask it to read the handoff and suggest your next action; check the answer against the files.</p></div>
         </li>
       </ol>
+      <details class="exercise-extension">
+        <summary>Go further</summary>
+        <ol class="steps">
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="planner-prompt-7-title">Read a calendar</h2>
+              <button type="button" class="button button-secondary" data-copy-target="planner-prompt-7" aria-label="Copy read a calendar prompt" hidden>Copy prompt</button>
+            </div>
+            <p class="prompt-note">Add scheduling context from a shareable demo calendar, for example checking how much time remains around lectures.</p>
+            <textarea id="planner-prompt-7" aria-labelledby="planner-prompt-7-title" rows="4" readonly spellcheck="false">Read [DEMO_CALENDAR] for [DATE_RANGE] without changing any events. Save a separate local summary and use it to suggest adjustments to my plan. Keep calendar imports separate from project notes and do not infer that scheduled tasks are complete.</textarea>
+            <div class="checkpoint"><p><strong>Check.</strong> Compare the summary with the demo calendar, including dates and timezone; review proposed plan changes before applying them.</p></div>
+          </li>
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="planner-prompt-8-title">Track a meeting</h2>
+              <button type="button" class="button button-secondary" data-copy-target="planner-prompt-8" aria-label="Copy track a meeting prompt" hidden>Copy prompt</button>
+            </div>
+            <p class="prompt-note">Turn fictional meeting notes into follow-up work, such as assigning the next step for a student-association event.</p>
+            <textarea id="planner-prompt-8" aria-labelledby="planner-prompt-8-title" rows="4" readonly spellcheck="false">Create a meeting note for [PROJECT] from these fictional notes: [MEETING_NOTES]. Separate decisions, open questions and actions, with owners or dates only where stated. Link it to the project and propose any planning updates.</textarea>
+            <div class="checkpoint"><p><strong>Review.</strong> Can every decision and action be traced to the notes, and is any uncertain owner or date clearly marked?</p></div>
+          </li>
+          <li class="prompt-card">
+            <div class="prompt-heading">
+              <h2 id="planner-prompt-9-title">Build a local view</h2>
+              <button type="button" class="button button-secondary" data-copy-target="planner-prompt-9" aria-label="Copy build a local view prompt" hidden>Copy prompt</button>
+            </div>
+            <p class="prompt-note">Make selected notes easier to browse, for example showing project status and today’s next actions in one view.</p>
+            <textarea id="planner-prompt-9" aria-labelledby="planner-prompt-9-title" rows="4" readonly spellcheck="false">Build a small read-only HTML dashboard from [SELECTED_DEMO_FILES]. Keep Markdown as the source of truth and show project status, next actions and links to the source notes. Run it on localhost and do not deploy it.</textarea>
+            <div class="checkpoint"><p><strong>Compare.</strong> Check the dashboard against its source notes, then change one note and verify that the refreshed view reflects it.</p></div>
+          </li>
+        </ol>
+      </details>
       <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
       <section id="references" class="section" aria-labelledby="references-title">
         <h2 id="references-title">References</h2>

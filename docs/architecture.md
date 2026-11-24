@@ -11,7 +11,7 @@ dependencies, external assets, backend, or database.
 | `site/tech.html` | Software, download links, and workshop subscription requirement |
 | `site/basics.html` | Reusable travel-planning scaffold, dream trip, feedback and handoff; optional reasoning, parallel work, instructions, skill and synthetic-hook exercises |
 | `site/planner.html` | Synthetic second brain, planning skill and updates; optional read-only calendar, meetings and local dashboard |
-| `site/research.html` | Cumulative 1 → 3 → 5 calibration; optional 20-case pilot, skill validation and bounded automation |
+| `site/research.html` | One case → three → skill → five new cases with a timing comparison → feedback and skill update; optional 20-case pilot and bounded automation |
 | `site/assets/styles.css` | Layout, colors, keyboard focus, and responsive styles |
 | `site/assets/script.js` | Prompt copy buttons and manual-copy fallback |
 | `site/downloads/` | Files deliberately selected for public download |

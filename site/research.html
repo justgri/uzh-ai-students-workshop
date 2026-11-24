@@ -39,10 +39,10 @@
         <dl class="page-overview">
           <div><dt>Task</dt><dd>Explore a small public research question, such as comparing research groups working on a topic you care about.</dd></div>
           <div><dt>Learn</dt><dd>Define success, check sources, give feedback and turn a useful procedure into a reusable skill.</dd></div>
-          <div><dt>Workflow</dt><dd>One case → three → five → reviewed pilot → skill → small automated batch.</dd></div>
+          <div><dt>Workflow</dt><dd>One case → learn from three → make a skill → five new cases and timing comparison → feedback and skill update.</dd></div>
         </dl>
       </header>
-      <p class="inline-note">Start with one checked result and work towards five if time allows; the later steps are extensions.</p>
+      <p class="inline-note">Start with one checked result; continue through three, a skill and five new cases if time allows. The larger pilot and automated batch are extensions.</p>
       <ol class="steps">
         <li class="prompt-card">
           <div class="prompt-heading">
@@ -68,56 +68,65 @@
             <button type="button" class="button button-secondary" data-copy-target="research-prompt-3" aria-label="Copy learn from three prompt" hidden>Copy prompt</button>
           </div>
           <p class="prompt-note">Use feedback to improve the method, for example by asking for clearer evidence or shorter summaries.</p>
-          <textarea id="research-prompt-3" aria-labelledby="research-prompt-3-title" rows="5" readonly spellcheck="false">Here is my feedback: [FEEDBACK]. Update the plan and first result, then add two examples so we have three in total, including one with missing or ambiguous information. Keep factual corrections separate from preferences about detail and presentation.</textarea>
-          <div class="checkpoint"><p><strong>Compare.</strong> Check all three results, including one with missing or ambiguous information; which problem needs a better rule, and which is a personal preference?</p></div>
+          <textarea id="research-prompt-3" aria-labelledby="research-prompt-3-title" rows="7" readonly spellcheck="false">Here is my feedback: [FEEDBACK]. Update the plan and first result, then add two examples without a skill so we have three in total, including one with missing or ambiguous information. For the two new cases only, record observed research time and time per case, keeping revisions and human review time separate; if timing is unavailable, say so. Keep factual corrections separate from preferences about detail and presentation.</textarea>
+          <div class="checkpoint"><p><strong>Compare.</strong> Check all three results, including the ambiguous case, and confirm that the timing covers only the two new cases. Which problem needs a better rule, and which is a personal preference?</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="research-prompt-4-title">Check five</h2>
-            <button type="button" class="button button-secondary" data-copy-target="research-prompt-4" aria-label="Copy check five prompt" hidden>Copy prompt</button>
+            <h2 id="research-prompt-4-title">Make a skill</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-4" aria-label="Copy make a skill prompt" hidden>Copy prompt</button>
           </div>
-          <p class="prompt-note">Test the revised method on fresh examples, such as two groups you have not reviewed yet.</p>
-          <textarea id="research-prompt-4" aria-labelledby="research-prompt-4-title" rows="5" readonly spellcheck="false">Use [FEEDBACK] to improve the procedure and add two fresh cases, bringing the total to five. Recheck earlier results affected by the changes. Save the procedure, my preferences and a short record of what still needs checking.</textarea>
-          <div class="checkpoint"><p><strong>Review together.</strong> Check the new cases against their sources and inspect what changed; five reviewed examples are a small calibration set, so decide what still needs testing.</p></div>
+          <p class="prompt-note">After reviewing the three cases, package the useful procedure as a skill with a name such as research-group-review.</p>
+          <textarea id="research-prompt-4" aria-labelledby="research-prompt-4-title" rows="5" readonly spellcheck="false">Use my review of the three cases: [FEEDBACK]. Turn the checked procedure into [SKILL_NAME] for [HARNESS], including source rules, my preferences and when to stop for review. Record skill creation time separately and show me the skill before using it.</textarea>
+          <div class="checkpoint"><p><strong>Inspect.</strong> Read the skill: does it capture your corrections and explain how to handle missing or ambiguous evidence?</p></div>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-5-title">Use the skill on five new cases</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-5" aria-label="Copy use the skill on five new cases prompt" hidden>Copy prompt</button>
+          </div>
+          <p class="prompt-note">Try five research groups you have not checked yet, keeping the comparison within the same topic.</p>
+          <textarea id="research-prompt-5" aria-labelledby="research-prompt-5-title" rows="8" readonly spellcheck="false">Use [SKILL_NAME] to research five new cases from [CASE_LIST], bringing the total to eight. Keep the model, reasoning setting and research scope the same as in the previous iteration, and time only these five new cases using the same method. Compare time per case with the two new cases from “Learn from three” (research time ÷ new cases), keeping skill creation, revisions and human review time separate. Report only measured timings, flag unavailable data and note differences in source rules or case difficulty.</textarea>
+          <div class="checkpoint"><p><strong>Compare the time.</strong> Check that the averages use two new cases without the skill and five with it. Different cases can take different time; a faster average still needs a quality review.</p></div>
+        </li>
+        <li class="prompt-card">
+          <div class="prompt-heading">
+            <h2 id="research-prompt-6-title">Verify and improve the skill</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-6" aria-label="Copy verify and improve the skill prompt" hidden>Copy prompt</button>
+          </div>
+          <p class="prompt-note">Open the five new results’ sources yourself, then give feedback such as requiring clearer evidence for a claim.</p>
+          <textarea id="research-prompt-6" aria-labelledby="research-prompt-6-title" rows="6" readonly spellcheck="false">Here is my source check and feedback: [FEEDBACK]. Verify all five new results against their sources and our agreed criteria, then correct affected results and update [SKILL_NAME]. Keep factual corrections separate from preferences, recheck affected cases with the revised skill and show the changes to both the skill and results.</textarea>
+          <div class="checkpoint"><p><strong>Review the changes.</strong> Confirm that your feedback changed the skill as well as the results, and check the corrected claims against their sources before using the skill on more cases.</p></div>
         </li>
       </ol>
       <details class="exercise-extension">
         <summary>Go further</summary>
-        <ol class="steps" start="5">
+        <ol class="steps" start="7">
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="research-prompt-5-title">Compare a pilot</h2>
-            <button type="button" class="button button-secondary" data-copy-target="research-prompt-5" aria-label="Copy compare a pilot prompt" hidden>Copy prompt</button>
+            <h2 id="research-prompt-7-title">Compare a pilot</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-7" aria-label="Copy compare a pilot prompt" hidden>Copy prompt</button>
           </div>
           <p class="prompt-note">As an extension, benchmark 20 cases and compare supported reasoning settings using the same checked examples.</p>
-          <textarea id="research-prompt-5" aria-labelledby="research-prompt-5-title" rows="6" readonly spellcheck="false">Run a 20-case pilot using [CASE_LIST] and compare it with [CHECKED_REFERENCE]. On the same subset, compare [REASONING_SETTINGS] with the same model, instructions and saved sources. Record actual time, factual errors and missing evidence, and identify which cases are new. Report only measurements you observed.</textarea>
+          <textarea id="research-prompt-7" aria-labelledby="research-prompt-7-title" rows="6" readonly spellcheck="false">Use [SKILL_NAME] for a 20-case pilot using [CASE_LIST] and compare it with [CHECKED_REFERENCE]. On the same subset, compare [REASONING_SETTINGS] with the same model, instructions and saved sources. Record actual time, factual errors and missing evidence, and identify which cases are new. Report only measurements you observed.</textarea>
           <div class="checkpoint"><p><strong>Decide.</strong> Does the quality justify doing more, and did extra reasoning help enough to justify the time? If you cannot complete the pilot, leave it pending.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="research-prompt-6-title">Make a skill</h2>
-            <button type="button" class="button button-secondary" data-copy-target="research-prompt-6" aria-label="Copy make a skill prompt" hidden>Copy prompt</button>
-          </div>
-          <p class="prompt-note">After reviewing the pilot, package the useful procedure as a skill with a name such as research-group-review.</p>
-          <textarea id="research-prompt-6" aria-labelledby="research-prompt-6-title" rows="5" readonly spellcheck="false">Once the reviewed pilot meets our agreed checks, turn the procedure into [SKILL_NAME] for [HARNESS]. Include the source rules, my preferences and when to stop for review. Invoke it on [FRESH_EXAMPLE] and show me the result before calling it validated.</textarea>
-          <div class="checkpoint"><p><strong>Try it.</strong> Inspect the skill and its fresh result; can you see how your corrections became part of the reusable method?</p></div>
-        </li>
-        <li class="prompt-card">
-          <div class="prompt-heading">
-            <h2 id="research-prompt-7-title">Divide the work</h2>
-            <button type="button" class="button button-secondary" data-copy-target="research-prompt-7" aria-label="Copy divide the work prompt" hidden>Copy prompt</button>
+            <h2 id="research-prompt-8-title">Divide the work</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-8" aria-label="Copy divide the work prompt" hidden>Copy prompt</button>
           </div>
           <p class="prompt-note">As an extension, split independent items between sessions, such as separate lists of research groups.</p>
-          <textarea id="research-prompt-7" aria-labelledby="research-prompt-7-title" rows="5" readonly spellcheck="false">Split [ITEM_LIST] into two independent assignments using our reviewed procedure. Give each session separate items and output files. Leave a short handoff for each, then combine and review the results in one session.</textarea>
+          <textarea id="research-prompt-8" aria-labelledby="research-prompt-8-title" rows="5" readonly spellcheck="false">Split [ITEM_LIST] into two independent assignments using our reviewed [SKILL_NAME]. Give each session separate items and output files. Leave a short handoff for each, then combine and review the results in one session.</textarea>
           <div class="checkpoint"><p><strong>Inspect.</strong> Check for duplicated items or conflicting edits, and confirm that both sessions received the same procedure and preferences.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="research-prompt-8-title">Run a small batch</h2>
-            <button type="button" class="button button-secondary" data-copy-target="research-prompt-8" aria-label="Copy run a small batch prompt" hidden>Copy prompt</button>
+            <h2 id="research-prompt-9-title">Run a small batch</h2>
+            <button type="button" class="button button-secondary" data-copy-target="research-prompt-9" aria-label="Copy run a small batch prompt" hidden>Copy prompt</button>
           </div>
           <p class="prompt-note">As a final extension, try a small repeatable run, for example five remaining items within ten minutes.</p>
-          <textarea id="research-prompt-8" aria-labelledby="research-prompt-8-title" rows="6" readonly spellcheck="false">Use [VALIDATED_SKILL] for at most [ITEM_LIMIT] items within [TIME_LIMIT]. Save progress after each item, skip completed items and stop when the limits are reached or a case needs my review. Show that the run can stop and resume, then leave a handoff with results and open questions.</textarea>
+          <textarea id="research-prompt-9" aria-labelledby="research-prompt-9-title" rows="6" readonly spellcheck="false">Use [VALIDATED_SKILL] for at most [ITEM_LIMIT] items within [TIME_LIMIT]. Save progress after each item, skip completed items and stop when the limits are reached or a case needs my review. Show that the run can stop and resume, then leave a handoff with results and open questions.</textarea>
           <div class="checkpoint"><p><strong>Check the trace.</strong> Find completed items, any unresolved cases and the next action in the saved files; could another session continue without repeating the work?</p></div>
         </li>
         </ol>

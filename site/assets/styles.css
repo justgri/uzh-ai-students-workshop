@@ -39,7 +39,7 @@ nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 nav a { color: var(--muted); font-size: 0.95rem; font-weight: 600; }
 nav a[aria-current="page"] { color: var(--accent); text-decoration-thickness: 0.15em; }
 .hero { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 2rem; padding-block: 3rem 1.5rem; }
-.intro-logo { display: block; width: 20rem; max-width: 100%; height: auto; margin-bottom: 2rem; }
+.hero .workshop-number { font-size: 0.8em; }
 .eyebrow { margin-bottom: 0.8rem; color: var(--accent); font-size: 0.875rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
 .lead { font-size: 1.2rem; font-weight: 600; }
 .hero > div > p:not(.eyebrow):not(.lead) { color: var(--muted); }

@@ -26,6 +26,16 @@
       <header class="page-header">
         <h1>Research</h1>
         <p class="lead">Make one research result trustworthy, then improve the way you repeat it.</p>
+        <details class="exercise-reference">
+          <summary>Starting a project</summary>
+          <ol class="outline-list">
+            <li><p><strong>Create a folder.</strong> In Windows File Explorer or macOS Finder, create a folder such as <code>research-project</code> wherever you want to keep this project.</p></li>
+            <li><p><strong>Open that folder in your harness.</strong> Start a local project or session in Codex or Claude Code and choose this folder as the working directory. Select only this folder for the exercise, rather than your whole Documents or home folder, and check the path before sending the first prompt.</p></li>
+            <li><p><strong>Define the working scope.</strong> This folder is the agent’s starting point for files and commands. Other files may still be accessible, depending on permissions and sandbox settings; selecting a folder alone does not prevent all outside access. Tell the agent to stay here and ask before accessing files elsewhere. A broad request such as “find research notes somewhere in my files” may invite a wider search; be specific, such as “look for research notes and results only inside this project folder.”</p></li>
+            <li><p><strong>Start new conversations in the same project.</strong> For this exercise, keep using the same local folder so each session can read its current saved files and project instructions. A new conversation does not automatically inherit every earlier chat or load every file into context. Ask it to read the README, instructions, handoff and relevant research plan and results to pick up where you left off.</p></li>
+          </ol>
+          <p class="prompt-note">Official guidance: <a href="https://learn.chatgpt.com/docs/projects">Codex projects and chats</a> · <a href="https://learn.chatgpt.com/docs/sandboxing">Codex permissions</a> · <a href="https://code.claude.com/docs/en/permissions#working-directories">Claude Code file access</a> · <a href="https://code.claude.com/docs/en/how-claude-code-works#work-with-sessions">Claude Code sessions</a></p>
+        </details>
         <dl class="page-overview">
           <div><dt>Task</dt><dd>Explore a small public research question, such as comparing research groups working on a topic you care about.</dd></div>
           <div><dt>Learn</dt><dd>Define success, check sources, give feedback and turn a useful procedure into a reusable skill.</dd></div>
@@ -39,9 +49,9 @@
             <h2 id="research-prompt-1-title">Set the direction</h2>
             <button type="button" class="button button-secondary" data-copy-target="research-prompt-1" aria-label="Copy set the direction prompt" hidden>Copy prompt</button>
           </div>
-          <p class="prompt-note">Choose a question you can check, such as finding research groups studying human–AI collaboration.</p>
-          <textarea id="research-prompt-1" aria-labelledby="research-prompt-1-title" rows="5" readonly spellcheck="false">Help me compare [ITEMS] working on [TOPIC] for [PURPOSE]. Save a short plan with what to collect, which public sources to use and what a useful result should look like. Keep the setup small and work within [TIME_BUDGET].</textarea>
-          <div class="checkpoint"><p><strong>Inspect.</strong> Read the plan: could you tell whether a result meets it, and is the question small enough to check yourself?</p></div>
+          <p class="prompt-note">Once your folder is open, choose your harness and a question you can check, such as finding research groups studying human–AI collaboration.</p>
+          <textarea id="research-prompt-1" aria-labelledby="research-prompt-1-title" rows="6" readonly spellcheck="false">Initialize a minimal research project for [HARNESS] in the current folder; show its path and do not create another project folder. Add a README and project instructions with a file map and a rule to ask before accessing files outside this folder. Help me compare [ITEMS] working on [TOPIC] for [PURPOSE], and save a short plan with what to collect, which public sources to use and what a useful result should look like. Keep the setup small and work within [TIME_BUDGET].</textarea>
+          <div class="checkpoint"><p><strong>Inspect.</strong> Check the working folder’s path and find the README and instructions: <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code. Check the rule about outside access, then read the plan: could you tell whether a result meets it, and is the question small enough to check yourself?</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
@@ -112,6 +122,15 @@
         </li>
         </ol>
       </details>
+      <section id="references" class="section" aria-labelledby="references-title">
+        <h2 id="references-title">References</h2>
+        <p>Explore interfaces for research outputs, argument structure and automated task progress.</p>
+        <ul class="reference-list">
+          <li><a href="https://ape.socialcatalystlab.org/">Project APE — Autonomous Policy Evaluation</a> — research leaderboard and review status.</li>
+          <li><a href="https://theorize.ink/papers/kamenica_gentzkow_2011.html">theorize — Bayesian Persuasion</a> — an interactive graph of a paper’s claims and supporting arguments.</li>
+          <li><a href="https://pequalnp.com/#map">P = NP? — Research map</a> — proof attempts, agent activity and checked results.</li>
+        </ul>
+      </section>
       <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
 
     </main>

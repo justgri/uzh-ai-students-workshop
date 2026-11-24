@@ -26,6 +26,16 @@
       <header class="page-header">
         <h1>Planner</h1>
         <p class="lead">Build a second brain that helps you pick up where you left off.</p>
+        <details class="exercise-reference">
+          <summary>Starting a project</summary>
+          <ol class="outline-list">
+            <li><p><strong>Create a folder.</strong> In Windows File Explorer or macOS Finder, create a folder such as <code>planner</code> wherever you want to keep this project.</p></li>
+            <li><p><strong>Open that folder in your harness.</strong> Start a local project or session in Codex or Claude Code and choose this folder as the working directory. Select only this folder for the exercise, rather than your whole Documents or home folder, and check the path before sending the first prompt.</p></li>
+            <li><p><strong>Define the working scope.</strong> This folder is the agent’s starting point for files and commands. Other files may still be accessible, depending on permissions and sandbox settings; selecting a folder alone does not prevent all outside access. Tell the agent to stay here and ask before accessing files elsewhere. A broad request such as “find my course deadlines somewhere in my files” may invite a wider search; be specific, such as “look for deadlines only in this project’s <code>02-projects/academic/</code> folder.”</p></li>
+            <li><p><strong>Start new conversations in the same project.</strong> For this exercise, keep using the same local folder so each session can read its current saved files and project instructions. A new conversation does not automatically inherit every earlier chat or load every file into context. Ask it to read the README, instructions, handoff and relevant project notes and plans to pick up where you left off.</p></li>
+          </ol>
+          <p class="prompt-note">Official guidance: <a href="https://learn.chatgpt.com/docs/projects">Codex projects and chats</a> · <a href="https://learn.chatgpt.com/docs/sandboxing">Codex permissions</a> · <a href="https://code.claude.com/docs/en/permissions#working-directories">Claude Code file access</a> · <a href="https://code.claude.com/docs/en/how-claude-code-works#work-with-sessions">Claude Code sessions</a></p>
+        </details>
         <dl class="page-overview">
           <div><dt>Task</dt><dd>Create a small home for projects, notes and plans.</dd></div>
           <div><dt>Learn</dt><dd>Organize context, reuse a skill and keep project state across sessions.</dd></div>
@@ -39,7 +49,7 @@
       </figure>
       <details class="exercise-reference">
         <summary>Example structure</summary>
-        <p class="prompt-note">Start with three fictional projects; add folders and planning views when you need them.</p>
+        <p class="prompt-note">Start with a few of your projects; add folders and planning views when you need them.</p>
         <pre class="folder-tree"><code>planner/
 ├── README.md
 ├── AGENTS.md or CLAUDE.md
@@ -51,11 +61,11 @@
 │   ├── next-7-days.md
 │   └── longer-term.md
 ├── 02-projects/
-│   ├── academic/       # Courses, research
-│   ├── professional/   # Internship
-│   ├── hobbies/        # Hiking, shows, running, social media
-│   ├── personal/       # Fictional finance and health projects
-│   └── probono/        # Voluntary projects
+│   ├── work/           # Job projects
+│   ├── school/         # Courses, assignments
+│   ├── hobbies/        # Hiking, shows, running
+│   ├── admin/          # Paperwork, errands
+│   └── travels/        # Trips
 ├── 03-worklogs/
 │   └── timeline.md
 ├── 04-second-brain/    # Reference notes
@@ -65,29 +75,30 @@
       <ol class="steps">
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-1-title">Start small</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-1" aria-label="Copy start small prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-1-title">Start a project</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-1" aria-label="Copy start a project prompt" hidden>Copy prompt</button>
           </div>
-          <p class="prompt-note">Choose a few projects to give the planner a purpose, such as a course assignment, an internship search and a hiking trip.</p>
-          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="4" readonly spellcheck="false">Help me build a small personal planner for [PROJECTS]. Use fictional details and folders for projects, plans, reference notes and an inbox. Create three project notes with a goal, current state and next action. Add a README and file index so we can find our way around.</textarea>
-          <div class="checkpoint"><p><strong>Inspect.</strong> Open the folder in VS Code and find each project’s next action; keep only the folders you understand.</p></div>
+          <p class="prompt-note">Save the purpose of your planner as project instructions so the agent can use that context in later sessions.</p>
+          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="4" readonly spellcheck="false">Create project instructions for [HARNESS] in this folder, using AGENTS.md for Codex or CLAUDE.md for Claude Code. Describe this as my personal planner, where I track day-to-day tasks and group them into projects. Include a rule to ask before accessing files outside this folder.</textarea>
+          <div class="checkpoint"><p><strong>Inspect.</strong> Open the instructions file and check that it describes how you want to use the planner.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="planner-prompt-2-title">Set the rules</h2>
-            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-2" aria-label="Copy set the rules prompt" hidden>Copy prompt</button>
+            <h2 id="planner-prompt-2-title">Set the rules and scaffold</h2>
+            <button type="button" class="button button-secondary" data-copy-target="planner-prompt-2" aria-label="Copy set the rules and scaffold prompt" hidden>Copy prompt</button>
           </div>
-          <p class="prompt-note">Save your working preferences as project instructions, for example keeping plans short and recording where updates came from.</p>
+          <p class="prompt-note">Adapt the instructor’s instructions to your preferences, then create folders and notes for your areas and first projects.</p>
           <p><a href="./downloads/planner/AGENTS.md" download="AGENTS.md">Download AGENTS.md</a> · <a href="./downloads/planner/AGENTS.md">View and copy template</a></p>
-          <textarea id="planner-prompt-2" aria-labelledby="planner-prompt-2-title" rows="4" readonly spellcheck="false">Create project instructions for [HARNESS] from https://justgri.github.io/uzh-ai-students-workshop/site/downloads/planner/AGENTS.md using my preferences: [PREFERENCES]. Adapt the example areas, projects and paths to this planner. Keep project notes as the source of truth, link plans to them, and never assume a task is complete. Keep the structure index current, add short READMEs to content folders, and record meaningful updates in a worklog.</textarea>
-          <div class="checkpoint"><p><strong>Review.</strong> Read the instructions and change one rule to match how you want to work.</p></div>
+          <textarea id="planner-prompt-2" aria-labelledby="planner-prompt-2-title" rows="4" readonly spellcheck="false">Read the example instructions at https://justgri.github.io/uzh-ai-students-workshop/site/downloads/planner/AGENTS.md and adapt their ideas to my existing project instructions and preferences: [PREFERENCES]. Start with these areas: [AREAS, e.g., work, school, hobbies, admin, travels], and these first projects: [PROJECTS, with an area for each]. Scaffold a small Markdown planner with project notes, plans, reference notes and an inbox; give each project a goal, current state and next action. Add a README and file index, link plans to project notes, and record meaningful updates in a worklog.</textarea>
+          <div class="checkpoint"><p><strong>Review.</strong> Check that the instructions match your preferences and each project sits in the right area with a useful next action.</p></div>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
             <h2 id="planner-prompt-3-title">Borrow a skill</h2>
             <button type="button" class="button button-secondary" data-copy-target="planner-prompt-3" aria-label="Copy borrow a skill prompt" hidden>Copy prompt</button>
           </div>
-          <p class="prompt-note">Reuse the instructor’s <a href="https://github.com/justgri/uzh-ai-students-workshop/tree/main/site/downloads/skills/personal-planner-operator">planning skill template</a>; read its workflow and supporting checklist before installing it.</p>
+          <p class="prompt-note">Reuse the instructor’s planning skill to make realistic plans and record progress. Read its workflow and supporting checklist before installing it.</p>
+          <p><a href="./downloads/skills/personal-planner-operator.zip" download="personal-planner-operator.zip">Download planning skill</a> · <a href="https://github.com/justgri/uzh-ai-students-workshop/tree/main/site/downloads/skills/personal-planner-operator">View and copy template</a></p>
           <textarea id="planner-prompt-3" aria-labelledby="planner-prompt-3-title" rows="4" readonly spellcheck="false">Read the planning skill at https://github.com/justgri/uzh-ai-students-workshop/tree/main/site/downloads/skills/personal-planner-operator, including its supporting files, and explain what it does before running it. Install the selected package locally for [HARNESS] and record its source version. Adapt its paths to this planner and show me how to invoke it.</textarea>
           <div class="checkpoint"><p><strong>Inspect.</strong> Open SKILL.md and check that its steps and required access fit your project.</p></div>
         </li>

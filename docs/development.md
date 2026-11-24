@@ -49,11 +49,28 @@ when inserting them into HTML, including inside textareas.
 The Files section contains exactly three final PDFs in `site/downloads/`:
 `intro_agentic_ai.pdf` labelled “Presentation (Original)”,
 `intro_agentic_ai_blue.pdf` labelled “Presentation (Codex-improved)” and
-`intro_agentic_ai_blue_columns.pdf` labelled “Presentation (Claude-improved)”. Their
-authoritative editable sources have the same stems in `presentation/final/`.
-For authorized deck changes, export from those exact sources and refresh both
-the public PDFs and their byte-identical local copies in `presentation/final/`.
+`intro_agentic_ai_blue_columns.pdf` labelled “Presentation (Claude-improved)”.
 Keep links relative to root `index.html`, beginning `./site/downloads/`.
+
+The human editing master is `presentation/work/human/intro_agentic_ai.key`.
+On a requested Original sync, copy that Keynote to
+`presentation/final/intro_agentic_ai.key` and export its matching native PDF.
+Requested Codex or Claude syncs reconcile the human content into their working
+versions under `presentation/work/codex/` or `presentation/work/claude/`,
+preserving each design, and refresh the requested final Keynote/PDF pair.
+See `presentation/final/README.md` for the presentation build and provenance.
+
+Website sync uses only the three final PDFs. From the repository root, run:
+
+```sh
+python3 -B scripts/sync-presentation-pdfs.py
+python3 -B scripts/sync-presentation-pdfs.py --check
+```
+
+The first command verifies that all three source PDFs exist, then overwrites
+their matching files in `site/downloads/` and verifies equal bytes. The second
+checks missing files and byte equality without writing. These commands do not
+export or restyle presentations, edit HTML links, commit, push, or deploy.
 
 Keep a written guide's Markdown source beside its PDF export when both are
 shared. Do not add empty PDFs or links to materials that are not present yet.

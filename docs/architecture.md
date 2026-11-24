@@ -9,7 +9,7 @@ dependencies, external assets, backend, or database.
 | --- | --- |
 | `index.html` | Intro: session details, outline, and download links |
 | `site/tech.html` | Software, download links, and workshop subscription requirement |
-| `site/basics.html` | Train-research warm-up, inspection and handoff; optional reasoning, parallel work, instructions, skill and synthetic-hook exercises |
+| `site/basics.html` | Reusable travel-planning scaffold, dream trip, feedback and handoff; optional reasoning, parallel work, instructions, skill and synthetic-hook exercises |
 | `site/planner.html` | Synthetic second brain, planning skill and updates; optional read-only calendar, meetings and local dashboard |
 | `site/research.html` | Cumulative 1 → 3 → 5 calibration; optional 20-case pilot, skill validation and bounded automation |
 | `site/assets/styles.css` | Layout, colors, keyboard focus, and responsive styles |
@@ -27,7 +27,12 @@ Planner, and Research; JavaScript copies that same text.
 Exercise pages begin with Task / Learn / Workflow, followed by short prompt
 cards with a purpose, a grey explanatory example and a human inspection step.
 Prompts contain two to four sentences. Later-stage work is grouped under
-“Go further”; the Planner scaffold and Basics glossary are expandable.
+“Go further”; each exercise page has an expandable “Starting a project” guide,
+alongside the Planner scaffold and Basics glossary/scaffold. The setup guides
+cover creating and opening a local project folder, distinguish working scope
+from enforced file permissions, and explain how saved files and handoffs support
+new conversations in the same folder. Their examples match each exercise;
+the first prompts initialize the folder the participant has already opened.
 Textareas fit their content on load, resize and expansion, while retaining
 manual resizing and no-JavaScript access. Unknown participant inputs remain
 bracketed placeholders. Planner offers a generic, downloadable instruction
@@ -51,10 +56,13 @@ manually. With JavaScript disabled, the prompts remain manually selectable.
 - The original `apps/html_website/` scaffold remains unchanged and ignored.
   The public copy is maintained independently; changes are not synchronized.
 - The scaffold originally included HTML, CSS, JavaScript, and two placeholder
-  downloads. Files now links only to the two final presentation PDFs selected
-  on 23 November 2026; their stable public paths and native sources are recorded
-  in `AGENTS.md` and `site/downloads/README.md`. Local app logs and other app
-  variants were not copied into the public site.
+  downloads. Files now links only to the three final presentation PDFs selected
+  on 23 November 2026. Presentation syncs produce the requested Keynote/PDF
+  pairs in `presentation/final/` from the human, Codex, and Claude working
+  sources; website sync is a separate copy of those three final PDFs using
+  `scripts/sync-presentation-pdfs.py`. Stable paths and provenance are recorded
+  in `AGENTS.md`, `presentation/final/README.md`, and `site/downloads/README.md`.
+  Local app logs and other app variants were not copied into the public site.
 - The Planner records are synthetic. Its public skill template is adapted
   from the instructor's planning workflow, with a self-contained checklist
   and exercise paths; no personal planner records were copied. Tech uses the

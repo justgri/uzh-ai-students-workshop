@@ -19,7 +19,6 @@ shareable details during the workshop.
 - Session continuity: `HANDOFF.md`.
 - Optional system rules and templates: `00-system/`.
 - Optional local planner calendar: `01-planning/calendar.md`.
-- Optional imported Google Calendar mirror: `01-planning/google-calendar.md`.
 
 Reuse existing equivalent paths. Start small; do not create every optional
 file or folder unless it is needed. Project notes are the source of truth;
@@ -80,15 +79,6 @@ When asked to log work:
 
 When leaving a session handoff, keep `HANDOFF.md` brief: current priorities,
 recent changes, open questions, the next action and links to source notes.
-
-## Optional Calendar Context
-
-- No calendar connection is required for this planner. Use calendar data only when requested and authorized.
-- Google Calendar is read-only for agents. Never create, edit, move, delete, cancel, RSVP to, relabel or otherwise write events, calendars, sharing, settings or metadata, through any tool, script, connector, browser or delegated agent. Propose changes locally for the human to apply. Planning or syncing requests do not revoke this rule; changing it requires an explicit revision of the rule itself.
-- Keep an imported Google Calendar mirror separate from the local planner calendar. An import is an observation, not a new commitment or evidence that work was completed. Do not automatically copy events into the planner calendar or write planner changes back to Google.
-- Identify whether an answer uses live calendar data, a local mirror or the planner calendar. State a mirror's last-sync time and known coverage; preserve failed reads and unknown coverage as unknown rather than empty.
-- If asked to refresh an existing mirror, retain cumulative coverage and append sync/change records. Never truncate earlier mirror history or sync-log entries.
-- Do not claim that instructions or an approval setting enforce a technical read-only boundary. Never test the rule by attempting a live write.
 
 ## Data and Scope
 

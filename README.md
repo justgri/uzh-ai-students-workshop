@@ -22,6 +22,9 @@ site/assets/           Website CSS and JavaScript
 site/downloads/        Final presentation PDFs and public download notes
 site/downloads/code/   Shared example scripts and their usage instructions
 docs/                  Project architecture, development, and deployment notes
+scripts/               Maintained local website-update helpers
+presentation/work/     Human, Codex, and Claude working sources; ignored by Git
+presentation/final/    Three final Keynote/PDF pairs and provenance README; ignored by Git
 admin/                 Private preparation; ignored by Git
 apps/                  Original app scaffolds, kept unchanged; ignored by Git
 .agent-work/           Local agent helpers and scratch files; ignored by Git
@@ -51,11 +54,17 @@ directly also displays the page; clipboard behavior may differ on local files.
   `site/assets/script.js`.
 - Put approved public PDFs, guides, and examples in `site/downloads/` and
   add relative links beginning with `./site/downloads/` to the page.
-- The final presentation sources are `presentation/final/intro_agentic_ai.key`
-  and `presentation/final/intro_agentic_ai_blue.key`. Export authorized changes
-  to the corresponding stable PDFs in `site/downloads/` and refresh their
-  matching local copies in `presentation/final/`. Files contains only these
-  two presentations. See the [download notes](site/downloads/README.md).
+- Edit the plain presentation in `presentation/work/human/intro_agentic_ai.key`.
+  Requested presentation syncs refresh the relevant Keynote/PDF pairs in
+  `presentation/final/`; Codex and Claude revisions live in
+  `presentation/work/codex/` and `presentation/work/claude/` and preserve their
+  separate styles. The final stems are `intro_agentic_ai`,
+  `intro_agentic_ai_blue`, and `intro_agentic_ai_blue_columns`.
+- To sync the website downloads, run `python3 -B scripts/sync-presentation-pdfs.py`.
+  This overwrites only the three public PDFs with the matching PDFs from
+  `presentation/final/`. It does not export or restyle decks, commit, or publish.
+  Use `python3 -B scripts/sync-presentation-pdfs.py --check` to check equality
+  without writing. See the [download notes](site/downloads/README.md).
 - Writing preference: use as few headings and subheadings as possible. Remove
   explanatory text that merely repeats the surrounding interface. Exercise
   pages need one main idea, action steps, and prompts with task-specific inputs.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Plan one journey, inspect the result, and learn to give an agent useful context.">
+    <meta name="description" content="Plan your dream trip and build a simple travel planner you can keep using after the workshop.">
     <title>Basics · Agentic AI workshop · UZH.ai</title>
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="./assets/script.js" defer></script>
@@ -25,6 +25,17 @@
     <main id="main" class="container">
       <header class="page-header">
         <h1>Basics</h1>
+        <p class="lead">Plan your dream trip and build a travel planner you can keep using.</p>
+        <details class="exercise-reference">
+          <summary>Starting a project</summary>
+          <ol class="outline-list">
+            <li><p><strong>Create a folder.</strong> In Windows File Explorer or macOS Finder, create a folder such as <code>travel-planner</code> wherever you want to keep this project.</p></li>
+            <li><p><strong>Open that folder in your harness.</strong> Start a local project or session in Codex or Claude Code and choose this folder as the working directory. Select only this folder for the exercise, rather than your whole Documents or home folder, and check the path before sending the first prompt.</p></li>
+            <li><p><strong>Define the working scope.</strong> This folder is the agent’s starting point for files and commands. Other files may still be accessible, depending on permissions and sandbox settings; selecting a folder alone does not prevent all outside access. Tell the agent to stay here and ask before accessing files elsewhere. A broad request such as “find a PDF ticket for this trip somewhere in my files” may invite a wider search; be specific, such as “look for the ticket only in this project’s <code>trips/lisbon-weekend/</code> folder.”</p></li>
+            <li><p><strong>Start new conversations in the same project.</strong> For this exercise, keep using the same local folder so each session can read its current saved files and project instructions. A new conversation does not automatically inherit every earlier chat or load every file into context. Ask it to read the README, instructions, handoff and relevant trip plan to pick up where you left off.</p></li>
+          </ol>
+          <p class="prompt-note">Official guidance: <a href="https://learn.chatgpt.com/docs/projects">Codex projects and chats</a> · <a href="https://learn.chatgpt.com/docs/sandboxing">Codex permissions</a> · <a href="https://code.claude.com/docs/en/permissions#working-directories">Claude Code file access</a> · <a href="https://code.claude.com/docs/en/how-claude-code-works#work-with-sessions">Claude Code sessions</a></p>
+        </details>
         <details class="exercise-reference">
           <summary>Vocabulary</summary>
           <dl class="glossary">
@@ -39,11 +50,26 @@
           </dl>
         </details>
         <dl class="page-overview">
-          <div><dt>Task</dt><dd>Research a fictional train journey and save a useful comparison.</dd></div>
-          <div><dt>Learn</dt><dd>Write instructions, check sources, inspect changes and continue in a new session.</dd></div>
-          <div><dt>Workflow</dt><dd>Set context → look up → inspect → improve → hand off.</dd></div>
+          <div><dt>Task</dt><dd>Create a reusable travel-planning folder and start planning your dream trip.</dd></div>
+          <div><dt>Learn</dt><dd>Write instructions, plan with sources, keep logs and reuse a checked procedure.</dd></div>
+          <div><dt>Workflow</dt><dd>Set up → research a trip → inspect → improve → hand off.</dd></div>
         </dl>
       </header>
+
+      <details class="exercise-reference">
+        <summary>Example structure</summary>
+        <p class="prompt-note">Keep each trip in its own folder; start with one plan file and add more only when needed.</p>
+        <pre class="folder-tree"><code>travel-planner/
+├── README.md
+├── AGENTS.md or CLAUDE.md
+├── search-log.md
+├── worklog.md
+├── HANDOFF.md             # Added when you pause
+└── trips/
+    └── lisbon-weekend/
+        └── plan.md</code></pre>
+        <p class="prompt-note">Each plan has a trip brief, accommodation, transport, activities and a day-by-day itinerary. Shared logs name the trip they refer to.</p>
+      </details>
 
       <ol class="steps">
         <li class="prompt-card">
@@ -51,21 +77,21 @@
             <h2 id="basics-prompt-1-title">Set the context</h2>
             <button type="button" class="button button-secondary" data-copy-target="basics-prompt-1" aria-label="Copy set the context prompt" hidden>Copy prompt</button>
           </div>
-          <p id="basics-prompt-1-note" class="prompt-note">Give the project lasting rules, using a name such as weekend-trips and your chosen harness, Codex or Claude Code.</p>
-          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" aria-describedby="basics-prompt-1-note" rows="6" readonly spellcheck="false">Create a minimal trip-planning folder called [PROJECT_NAME] for [HARNESS]. Use subfolders with short README files, a search log and one Markdown table per journey. Write the project instructions with a simple file map, source-checking rules and a rule to leave a worklog and handoff. Use fictional plans and public information only; do not book or buy anything.</textarea>
+          <p id="basics-prompt-1-note" class="prompt-note">Once your folder is open, initialize it and save lasting rules for your chosen harness, Codex or Claude Code.</p>
+          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" aria-describedby="basics-prompt-1-note" rows="6" readonly spellcheck="false">Initialize a minimal travel planner for [HARNESS] in the current folder; show its path and do not create another project folder. Add a README, project instructions, search-log.md, worklog.md and trips/, with one plan.md per trip covering the brief, accommodation, transport, activities and day-by-day itinerary. In the instructions, include a file map and rules to cite sources with lookup dates, mark uncertainty, name the trip in shared logs, leave worklogs and handoffs, and ask before accessing files outside this folder. Use my travel preferences and public sources; do not book or buy anything.</textarea>
           <aside class="checkpoint">
-            <p><strong>Inspect.</strong> Open the folder in VS Code and find the instructions: <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code; check that the structure is easy to understand.</p>
+            <p><strong>Inspect.</strong> Check the working folder’s path, then open it in VS Code and find the instructions: <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code; check the file map and the rule about outside access.</p>
           </aside>
         </li>
         <li class="prompt-card">
           <div class="prompt-heading">
-            <h2 id="basics-prompt-2-title">Look up a journey</h2>
-            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-2" aria-label="Copy look up a journey prompt" hidden>Copy prompt</button>
+            <h2 id="basics-prompt-2-title">Plan your dream trip</h2>
+            <button type="button" class="button button-secondary" data-copy-target="basics-prompt-2" aria-label="Copy plan your dream trip prompt" hidden>Copy prompt</button>
           </div>
-          <p id="basics-prompt-2-note" class="prompt-note">Try a route such as Zurich to Bern on your chosen date, adding preferences such as second class with a Half Fare Travelcard.</p>
-          <textarea id="basics-prompt-2" aria-labelledby="basics-prompt-2-title" aria-describedby="basics-prompt-2-note" rows="5" readonly spellcheck="false">Look up [ROUTE] on [DATE], leaving around [TIME], with [TICKET_PREFERENCES]. Save a short Markdown comparison with source links, the lookup date and any fare assumptions, and add the searches to our log. Use official sources where possible and clearly mark anything you could not verify.</textarea>
+          <p id="basics-prompt-2-note" class="prompt-note">Choose somewhere you would love to visit, such as Lisbon; give possible dates, a budget and interests such as food and museums.</p>
+          <textarea id="basics-prompt-2" aria-labelledby="basics-prompt-2-title" aria-describedby="basics-prompt-2-note" rows="6" readonly spellcheck="false">Start planning my dream trip in trips/[TRIP_NAME]/ using [TRIP_DETAILS: departure city, destination, dates, budget and interests]. Research just one accommodation option, one way to get there and two activities, using official sources where possible. Save the options, source links, lookup date and a rough day-by-day itinerary in plan.md, marking estimates and unverified availability. Add the queries and useful links to search-log.md, and record the update in worklog.md.</textarea>
           <aside class="checkpoint">
-            <p><strong>Inspect.</strong> Open the Markdown preview and a cited source; check one departure time or price, including its date and discount assumptions.</p>
+            <p><strong>Inspect.</strong> Open the plan in Markdown preview and check one accommodation or activity detail against its source; are the dates, price assumptions and daily pace sensible?</p>
           </aside>
         </li>
         <li class="prompt-card">
@@ -73,10 +99,10 @@
             <h2 id="basics-prompt-3-title">Give feedback</h2>
             <button type="button" class="button button-secondary" data-copy-target="basics-prompt-3" aria-label="Copy give feedback prompt" hidden>Copy prompt</button>
           </div>
-          <p id="basics-prompt-3-note" class="prompt-note">Improve the result with ordinary feedback, such as adding journey duration or making the table easier to scan.</p>
-          <textarea id="basics-prompt-3" aria-labelledby="basics-prompt-3-title" aria-describedby="basics-prompt-3-note" rows="4" readonly spellcheck="false">Update the journey comparison based on this feedback: [MY_FEEDBACK]. Keep the sources and uncertainty visible, and record the change in the worklog.</textarea>
+          <p id="basics-prompt-3-note" class="prompt-note">Improve the plan with ordinary feedback, such as a slower pace or replacing one paid activity with a free option.</p>
+          <textarea id="basics-prompt-3" aria-labelledby="basics-prompt-3-title" aria-describedby="basics-prompt-3-note" rows="4" readonly spellcheck="false">Update trips/[TRIP_NAME]/plan.md based on this feedback: [MY_FEEDBACK]. Adjust the affected choices and itinerary together, keeping sources and uncertainty visible. Add any new searches to search-log.md and record what changed and why in worklog.md.</textarea>
           <aside class="checkpoint">
-            <p><strong>Inspect.</strong> Compare the changed lines in VS Code with your request; decide whether the correction belongs only to this journey or should become a project rule.</p>
+            <p><strong>Inspect.</strong> Compare the changed lines in VS Code with your request; decide whether the correction belongs only to this trip or should become a project rule.</p>
           </aside>
         </li>
         <li class="prompt-card">
@@ -84,8 +110,8 @@
             <h2 id="basics-prompt-4-title">Leave a handoff</h2>
             <button type="button" class="button button-secondary" data-copy-target="basics-prompt-4" aria-label="Copy leave a handoff prompt" hidden>Copy prompt</button>
           </div>
-          <p id="basics-prompt-4-note" class="prompt-note">Save enough context to continue later, with a next step such as comparing the return journey.</p>
-          <textarea id="basics-prompt-4" aria-labelledby="basics-prompt-4-title" aria-describedby="basics-prompt-4-note" rows="4" readonly spellcheck="false">Save a short handoff with our goal, completed work, useful file links and remaining uncertainty. Update the worklog and set [NEXT_STEP] as the next action.</textarea>
+          <p id="basics-prompt-4-note" class="prompt-note">Save enough context to continue later, with a next step such as checking the accommodation’s cancellation policy.</p>
+          <textarea id="basics-prompt-4" aria-labelledby="basics-prompt-4-title" aria-describedby="basics-prompt-4-note" rows="4" readonly spellcheck="false">Save a short HANDOFF.md with the current trip, our goal, completed work, links to its plan and remaining uncertainty. Update worklog.md and set [NEXT_STEP] as the next action.</textarea>
           <aside class="checkpoint">
             <p><strong>Try it.</strong> Start a fresh chat in this project and ask it to read the instructions and handoff, then summarize where to continue; check its answer against the files.</p>
           </aside>
@@ -94,15 +120,15 @@
 
       <details class="exercise-extension">
         <summary>Go further</summary>
-        <p class="inline-note">Try these after the first journey works, or follow the instructor's demonstration.</p>
+        <p class="inline-note">Try these after the first trip plan works, or follow the instructor's demonstration.</p>
         <ol class="steps" start="5">
           <li class="prompt-card">
             <div class="prompt-heading">
               <h2 id="basics-prompt-5-title">Compare reasoning</h2>
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-5" aria-label="Copy compare reasoning prompt" hidden>Copy prompt</button>
             </div>
-            <p id="basics-prompt-5-note" class="prompt-note">Use the same saved information at two supported reasoning settings to compare speed and quality.</p>
-            <textarea id="basics-prompt-5" aria-labelledby="basics-prompt-5-title" aria-describedby="basics-prompt-5-note" rows="4" readonly spellcheck="false">Using [SAVED_JOURNEY_INFORMATION], make a comparison focused on [MY_PREFERENCE] and save it as [OUTPUT_FILE]. Use only this information so I can compare the same task at two reasoning settings.</textarea>
+            <p id="basics-prompt-5-note" class="prompt-note">Use the same saved trip notes at two supported reasoning settings, for example to make a more relaxed itinerary.</p>
+            <textarea id="basics-prompt-5" aria-labelledby="basics-prompt-5-title" aria-describedby="basics-prompt-5-note" rows="4" readonly spellcheck="false">Using trips/[TRIP_NAME]/plan.md, suggest an itinerary focused on [MY_PREFERENCE] and save it as [OUTPUT_FILE]. Use only the saved information and leave the original plan unchanged so I can compare the same task at two reasoning settings.</textarea>
             <aside class="checkpoint">
               <p><strong>Try it.</strong> Run the prompt at two effort settings in the harness, using different output filenames; record the model, settings and time, then compare accuracy and usefulness.</p>
             </aside>
@@ -112,8 +138,8 @@
               <h2 id="basics-prompt-6-title">Work in parallel</h2>
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-6" aria-label="Copy work in parallel prompt" hidden>Copy prompt</button>
             </div>
-            <p id="basics-prompt-6-note" class="prompt-note">Ask one chat to coordinate parallel work, for example comparing the same saved journey options at two supported reasoning settings.</p>
-            <textarea id="basics-prompt-6" aria-labelledby="basics-prompt-6-title" aria-describedby="basics-prompt-6-note" rows="5" readonly spellcheck="false">Use two parallel sessions for [SMALL_TASK] with [SAVED_INPUT] at [REASONING_SETTINGS]. Keep each session’s outputs and logs in its own folder under ignored .agent-work/, leaving shared files unchanged. Record the model, effort and elapsed time, then bring the results back for comparison. If the harness cannot launch sessions or set their effort, give me two task briefs to run manually.</textarea>
+            <p id="basics-prompt-6-note" class="prompt-note">Ask one chat to coordinate parallel work, for example two relaxed itineraries from the same saved trip notes at different reasoning settings.</p>
+            <textarea id="basics-prompt-6" aria-labelledby="basics-prompt-6-title" aria-describedby="basics-prompt-6-note" rows="5" readonly spellcheck="false">Use two parallel sessions to suggest an itinerary from trips/[TRIP_NAME]/plan.md for [MY_PREFERENCE] at [REASONING_SETTINGS], using only the saved information. Keep each session’s outputs and logs in its own folder under ignored .agent-work/, leaving shared files unchanged. Record the model, effort and elapsed time, then bring the results back for comparison. If the harness cannot launch sessions or set their effort, give me two task briefs to run manually.</textarea>
             <aside class="checkpoint">
               <p><strong>Inspect.</strong> Compare the two results, then let the coordinating chat update the shared records; notice that project files can be shared while conversations have separate context.</p>
             </aside>
@@ -123,10 +149,10 @@
               <h2 id="basics-prompt-7-title">Make a skill</h2>
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-7" aria-label="Copy make a skill prompt" hidden>Copy prompt</button>
             </div>
-            <p id="basics-prompt-7-note" class="prompt-note">Reuse the procedure you have checked, with another journey such as a return trip to Zurich.</p>
-            <textarea id="basics-prompt-7" aria-labelledby="basics-prompt-7-title" aria-describedby="basics-prompt-7-note" rows="4" readonly spellcheck="false">Turn our checked journey-lookup procedure into a small skill for [HARNESS]. Include the inputs, source checks and comparison format, then try it on [ANOTHER_JOURNEY]. Keep it labelled as a draft until we have reviewed the result.</textarea>
+            <p id="basics-prompt-7-note" class="prompt-note">Reuse the checked process for another trip you would like to take, such as a weekend in Vienna.</p>
+            <textarea id="basics-prompt-7" aria-labelledby="basics-prompt-7-title" aria-describedby="basics-prompt-7-note" rows="4" readonly spellcheck="false">Turn our checked trip-planning procedure into a small skill for [HARNESS]. Include the trip inputs, folder and plan structure, small research limit, source checks and log updates. Try it on [NEW_TRIP_NAME_AND_DETAILS] in its own folder under trips/, keeping the first trip unchanged. Keep the skill labelled as a draft until we have reviewed the new plan.</textarea>
             <aside class="checkpoint">
-              <p><strong>Inspect.</strong> Open <code>SKILL.md</code> and the new result; separate reusable steps from preferences that belong in the project instructions.</p>
+              <p><strong>Inspect.</strong> Open <code>SKILL.md</code> and the second trip’s plan; separate reusable steps from preferences that belong in the project instructions.</p>
             </aside>
           </li>
           <li class="prompt-card">
@@ -134,11 +160,11 @@
               <h2 id="basics-prompt-8-title">Test a guardrail</h2>
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-8" aria-label="Copy test a guardrail prompt" hidden>Copy prompt</button>
             </div>
-            <p id="basics-prompt-8-note" class="prompt-note">Follow a synthetic demonstration of folder protection using a fake ticket rather than any real private file.</p>
-            <textarea id="basics-prompt-8" aria-labelledby="basics-prompt-8-title" aria-describedby="basics-prompt-8-note" rows="6" readonly spellcheck="false">Create a synthetic private-demo/ folder with a fake ticket and ignore it in Git. Add instructions that forbid reading, searching or previewing its contents and require accidental access to be reported in bold without quoting the contents. Configure a hook for [HARNESS] and demonstrate one allowed action and one blocked read using only fake data. State which tool path was tested and what the hook does not cover.</textarea>
+            <p id="basics-prompt-8-note" class="prompt-note">Follow a synthetic demonstration of folder protection using a fake booking confirmation rather than any real private file.</p>
+            <textarea id="basics-prompt-8" aria-labelledby="basics-prompt-8-title" aria-describedby="basics-prompt-8-note" rows="6" readonly spellcheck="false">Create a synthetic private-demo/ folder with a fake booking confirmation and ignore it in Git. Add instructions that forbid reading, searching or previewing its contents and require accidental access to be reported in bold without quoting the contents. Configure a hook for [HARNESS] and demonstrate one allowed action and one blocked read using only fake data. State which tool path was tested and what the hook does not cover.</textarea>
             <aside class="checkpoint">
               <p><strong>Inspect.</strong> Check the observed block: instructions guide behaviour, <code>.gitignore</code> excludes untracked files from Git, and a trusted hook can block covered tool actions.</p>
-              <p>Download-only access needs a separately checked transfer workflow; use a prepared fake ticket here.</p>
+              <p>Use only the prepared fake confirmation; keep real booking documents out of this demonstration.</p>
             </aside>
           </li>
           <li class="prompt-card">
@@ -147,7 +173,7 @@
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-9" aria-label="Copy keep work local prompt" hidden>Copy prompt</button>
             </div>
             <p id="basics-prompt-9-note" class="prompt-note">Use global instructions for habits you want across projects, such as keeping working files in each project’s ignored .agent-work/ folder instead of temporary folders.</p>
-            <textarea id="basics-prompt-9" aria-labelledby="basics-prompt-9-title" aria-describedby="basics-prompt-9-note" rows="4" readonly spellcheck="false">Add this rule to my global instructions for [HARNESS]: [WORKSPACE_RULE]. Keep existing rules and show me where the update is saved. Explain how this differs from the instructions inside our trip project.</textarea>
+            <textarea id="basics-prompt-9" aria-labelledby="basics-prompt-9-title" aria-describedby="basics-prompt-9-note" rows="4" readonly spellcheck="false">Add this rule to my global instructions for [HARNESS]: [WORKSPACE_RULE]. Keep existing rules and show me where the update is saved. Explain how this differs from the instructions inside our travel-planning project.</textarea>
             <aside class="checkpoint">
               <p><strong>Compare.</strong> Find the global and project instruction files; decide which preferences belong everywhere and which belong only to this project.</p>
             </aside>

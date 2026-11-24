@@ -16,6 +16,9 @@ agent to adapt the example paths to your existing planner. Keep the source
 repository URL and commit SHA with your installed copy so you can identify
 the version you used. Try it on fictional projects and inspect the changes.
 
+The [downloadable ZIP](personal-planner-operator.zip) contains both files. Rebuild
+it from the exported package whenever either file changes.
+
 Adapted on 23 November 2026 from the instructor's `personal-planner-operator`
 skill. The planning workflow and checklists are retained; instructor-specific
 system folders and the mandatory `master-calendar` skill dependency are

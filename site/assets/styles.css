@@ -76,6 +76,7 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .reference-list { margin: 0; padding-left: 1.25rem; }
 .reference-list li + li { margin-top: 0.75rem; }
 .page-header { max-width: 52rem; padding-block: 3.5rem 2rem; }
+.page-header.page-header-compact { padding-bottom: 0.75rem; }
 .page-header h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
 .page-header .lead { margin-bottom: 0; color: var(--muted); font-weight: 400; }
 .page-overview { display: grid; gap: 0.65rem; margin-top: 1.5rem; }
@@ -83,6 +84,7 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .page-overview > div + div { margin-top: 0; }
 .page-overview dt { color: var(--ink); font-size: 1rem; font-weight: 700; }
 .page-overview dd { color: var(--muted); }
+.page-overview + p { margin-top: 1.5rem; }
 .workflow-map { margin: 0 0 1.75rem; padding-block: 1rem; border-block: 1px solid var(--border); }
 .workflow-map > div { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 0.85rem; font-weight: 650; }
 .workflow-map figcaption { margin-top: 0.65rem; color: var(--muted); font-size: 0.95rem; }
@@ -103,6 +105,7 @@ textarea { display: block; width: 100%; min-height: 6.25rem; padding: 1rem; resi
 .checkpoint > strong { display: block; margin-bottom: 0.2rem; }
 .checkpoint p + p { margin-top: 0.5rem; color: var(--muted); }
 .exercise-extension, .exercise-reference { margin-block: 1.75rem; }
+.page-header > .exercise-reference:last-child { margin-bottom: 0; }
 .exercise-extension > summary, .exercise-reference > summary { width: fit-content; max-width: 100%; padding-block: 0.5rem; cursor: pointer; font-weight: 700; }
 .exercise-extension[open] > summary, .exercise-reference[open] > summary { margin-bottom: 0.75rem; }
 .exercise-reference .glossary { margin-bottom: 0; }

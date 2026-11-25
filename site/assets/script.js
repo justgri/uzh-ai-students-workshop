@@ -5,8 +5,11 @@ const copyStatus = document.getElementById("copy-status");
 function fitPrompts() {
   document.querySelectorAll("textarea[readonly]").forEach((field) => {
     if (field.getClientRects().length === 0) return;
-    field.style.height = "auto";
-    field.style.height = `${field.scrollHeight + 2}px`;
+    field.classList.add("prompt-fitted");
+    // Collapse first so the preset rows cannot keep a short prompt too tall.
+    field.style.height = "0px";
+    const borderHeight = field.offsetHeight - field.clientHeight;
+    field.style.height = `${field.scrollHeight + borderHeight}px`;
   });
 }
 

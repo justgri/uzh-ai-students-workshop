@@ -26,6 +26,11 @@
       <header class="page-header">
         <h1>Planner</h1>
         <p class="lead">Build a second brain that helps you pick up where you left off.</p>
+        <dl class="page-overview">
+          <div><dt>Task</dt><dd>Create a small home for projects, notes and plans.</dd></div>
+          <div><dt>Learn</dt><dd>Organize context, reuse a skill and keep project state across sessions.</dd></div>
+          <div><dt>Workflow</dt><dd>Set up → plan → capture an update → review → resume.</dd></div>
+        </dl>
         <details class="exercise-reference">
           <summary>Starting a project</summary>
           <ol class="outline-list">
@@ -36,17 +41,8 @@
           </ol>
           <p class="prompt-note">Official guidance: <a href="https://learn.chatgpt.com/docs/projects">Codex projects and chats</a> · <a href="https://learn.chatgpt.com/docs/sandboxing">Codex permissions</a> · <a href="https://code.claude.com/docs/en/permissions#working-directories">Claude Code file access</a> · <a href="https://code.claude.com/docs/en/how-claude-code-works#work-with-sessions">Claude Code sessions</a></p>
         </details>
-        <dl class="page-overview">
-          <div><dt>Task</dt><dd>Create a small home for projects, notes and plans.</dd></div>
-          <div><dt>Learn</dt><dd>Organize context, reuse a skill and keep project state across sessions.</dd></div>
-          <div><dt>Workflow</dt><dd>Set up → plan → capture an update → review → resume.</dd></div>
-        </dl>
       </header>
       <p>A second brain keeps useful context in linked notes you can inspect and maintain with an agent, inspired by <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy’s LLM Wiki</a>.</p>
-      <figure class="workflow-map">
-        <div><span>Capture a note</span><span aria-hidden="true">→</span><span>Update a project</span><span aria-hidden="true">→</span><span>Choose a next action</span></div>
-        <figcaption>Project notes hold the facts; planning views link back to them.</figcaption>
-      </figure>
       <details class="exercise-reference">
         <summary>Example structure</summary>
         <p class="prompt-note">Start with a few of your projects; add folders and planning views when you need them.</p>
@@ -79,7 +75,7 @@
             <button type="button" class="button button-secondary" data-copy-target="planner-prompt-1" aria-label="Copy start a project prompt" hidden>Copy prompt</button>
           </div>
           <p class="prompt-note">Save the purpose of your planner as project instructions so the agent can use that context in later sessions.</p>
-          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="4" readonly spellcheck="false">Create project instructions for [HARNESS] in this folder, using AGENTS.md for Codex or CLAUDE.md for Claude Code. Describe this as my personal planner, where I track day-to-day tasks and group them into projects. Include a rule to ask before accessing files outside this folder.</textarea>
+          <textarea id="planner-prompt-1" aria-labelledby="planner-prompt-1-title" rows="4" readonly spellcheck="false">Initialize agent instructions for a personal planner in this folder. Describe this as my personal planner, where I track day-to-day tasks and group them into projects. Include a rule to ask before accessing files outside this folder.</textarea>
           <div class="checkpoint"><p><strong>Inspect.</strong> Open the instructions file and check that it describes how you want to use the planner.</p></div>
         </li>
         <li class="prompt-card">
@@ -99,7 +95,7 @@
           </div>
           <p class="prompt-note">Reuse the instructor’s planning skill to make realistic plans and record progress. Read its workflow and supporting checklist before installing it.</p>
           <p><a href="./downloads/skills/personal-planner-operator.zip" download="personal-planner-operator.zip">Download planning skill</a> · <a href="https://github.com/justgri/uzh-ai-students-workshop/tree/main/site/downloads/skills/personal-planner-operator">View and copy template</a></p>
-          <textarea id="planner-prompt-3" aria-labelledby="planner-prompt-3-title" rows="4" readonly spellcheck="false">Read the planning skill at https://github.com/justgri/uzh-ai-students-workshop/tree/main/site/downloads/skills/personal-planner-operator, including its supporting files, and explain what it does before running it. Install the selected package locally for [HARNESS] and record its source version. Adapt its paths to this planner and show me how to invoke it.</textarea>
+          <textarea id="planner-prompt-3" aria-labelledby="planner-prompt-3-title" rows="4" readonly spellcheck="false">Read the planning skill at https://github.com/justgri/uzh-ai-students-workshop/tree/main/site/downloads/skills/personal-planner-operator, including its supporting files, and explain what it does before running it. Install the selected package locally and record its source version. Adapt its paths to this planner and show me how to invoke it.</textarea>
           <div class="checkpoint"><p><strong>Inspect.</strong> Open SKILL.md and check that its steps and required access fit your project.</p></div>
         </li>
         <li class="prompt-card">

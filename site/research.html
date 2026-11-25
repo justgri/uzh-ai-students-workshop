@@ -25,7 +25,12 @@
     <main id="main" class="container">
       <header class="page-header">
         <h1>Research</h1>
-        <p class="lead">Make one research result trustworthy, then improve the way you repeat it.</p>
+        <p class="lead">Make one research result trustworthy, create a skill, loop through cases, and build an automated pipeline.</p>
+        <dl class="page-overview">
+          <div><dt>Task</dt><dd>Explore a small public research question, such as comparing research groups working on a topic you care about.</dd></div>
+          <div><dt>Learn</dt><dd>Define success, check sources, give feedback and turn a useful procedure into a reusable skill.</dd></div>
+          <div><dt>Workflow</dt><dd>One case → learn from three → make a skill → five new cases and timing comparison → feedback and skill update.</dd></div>
+        </dl>
         <details class="exercise-reference">
           <summary>Starting a project</summary>
           <ol class="outline-list">
@@ -36,21 +41,15 @@
           </ol>
           <p class="prompt-note">Official guidance: <a href="https://learn.chatgpt.com/docs/projects">Codex projects and chats</a> · <a href="https://learn.chatgpt.com/docs/sandboxing">Codex permissions</a> · <a href="https://code.claude.com/docs/en/permissions#working-directories">Claude Code file access</a> · <a href="https://code.claude.com/docs/en/how-claude-code-works#work-with-sessions">Claude Code sessions</a></p>
         </details>
-        <dl class="page-overview">
-          <div><dt>Task</dt><dd>Explore a small public research question, such as comparing research groups working on a topic you care about.</dd></div>
-          <div><dt>Learn</dt><dd>Define success, check sources, give feedback and turn a useful procedure into a reusable skill.</dd></div>
-          <div><dt>Workflow</dt><dd>One case → learn from three → make a skill → five new cases and timing comparison → feedback and skill update.</dd></div>
-        </dl>
       </header>
-      <p class="inline-note">Start with one checked result; continue through three, a skill and five new cases if time allows. The larger pilot and automated batch are extensions.</p>
       <ol class="steps">
         <li class="prompt-card">
           <div class="prompt-heading">
             <h2 id="research-prompt-1-title">Set the direction</h2>
             <button type="button" class="button button-secondary" data-copy-target="research-prompt-1" aria-label="Copy set the direction prompt" hidden>Copy prompt</button>
           </div>
-          <p class="prompt-note">Once your folder is open, choose your harness and a question you can check, such as finding research groups studying human–AI collaboration.</p>
-          <textarea id="research-prompt-1" aria-labelledby="research-prompt-1-title" rows="6" readonly spellcheck="false">Initialize a minimal research project for [HARNESS] in the current folder; show its path and do not create another project folder. Add a README and project instructions with a file map and a rule to ask before accessing files outside this folder. Help me compare [ITEMS] working on [TOPIC] for [PURPOSE], and save a short plan with what to collect, which public sources to use and what a useful result should look like. Keep the setup small and work within [TIME_BUDGET].</textarea>
+          <p class="prompt-note">Once your folder is open, choose a question you can check, such as finding research groups studying human–AI collaboration.</p>
+          <textarea id="research-prompt-1" aria-labelledby="research-prompt-1-title" rows="6" readonly spellcheck="false">Initialize agent instructions for a research project in the current folder; show its path and do not create another project folder. Add a README. In the instructions, include a file map and a rule to ask before accessing files outside this folder. Help me compare [ITEMS] working on [TOPIC] for [PURPOSE], and save a short plan with what to collect, which public sources to use and what a useful result should look like. Keep the setup small and work within [TIME_BUDGET].</textarea>
           <div class="checkpoint"><p><strong>Inspect.</strong> Check the working folder’s path and find the README and instructions: <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code. Check the rule about outside access, then read the plan: could you tell whether a result meets it, and is the question small enough to check yourself?</p></div>
         </li>
         <li class="prompt-card">
@@ -77,7 +76,7 @@
             <button type="button" class="button button-secondary" data-copy-target="research-prompt-4" aria-label="Copy make a skill prompt" hidden>Copy prompt</button>
           </div>
           <p class="prompt-note">After reviewing the three cases, package the useful procedure as a skill with a name such as research-group-review.</p>
-          <textarea id="research-prompt-4" aria-labelledby="research-prompt-4-title" rows="5" readonly spellcheck="false">Use my review of the three cases: [FEEDBACK]. Turn the checked procedure into [SKILL_NAME] for [HARNESS], including source rules, my preferences and when to stop for review. Record skill creation time separately and show me the skill before using it.</textarea>
+          <textarea id="research-prompt-4" aria-labelledby="research-prompt-4-title" rows="5" readonly spellcheck="false">Use my review of the three cases: [FEEDBACK]. Turn the checked procedure into a skill named [SKILL_NAME], including source rules, my preferences and when to stop for review. Record skill creation time separately and show me the skill before using it.</textarea>
           <div class="checkpoint"><p><strong>Inspect.</strong> Read the skill: does it capture your corrections and explain how to handle missing or ambiguous evidence?</p></div>
         </li>
         <li class="prompt-card">

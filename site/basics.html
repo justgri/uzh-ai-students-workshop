@@ -26,6 +26,11 @@
       <header class="page-header">
         <h1>Basics</h1>
         <p class="lead">Plan your dream trip and build a travel planner you can keep using.</p>
+        <dl class="page-overview">
+          <div><dt>Task</dt><dd>Create a reusable travel-planning folder and start planning your dream trip.</dd></div>
+          <div><dt>Learn</dt><dd>Write instructions, plan with sources, keep logs and reuse a checked procedure.</dd></div>
+          <div><dt>Workflow</dt><dd>Set up → research a trip → inspect → improve → hand off.</dd></div>
+        </dl>
         <details class="exercise-reference">
           <summary>Starting a project</summary>
           <ol class="outline-list">
@@ -49,11 +54,6 @@
             <div><dt>Worklog / handoff</dt><dd>A record of changes and saved context for continuing in another session.</dd></div>
           </dl>
         </details>
-        <dl class="page-overview">
-          <div><dt>Task</dt><dd>Create a reusable travel-planning folder and start planning your dream trip.</dd></div>
-          <div><dt>Learn</dt><dd>Write instructions, plan with sources, keep logs and reuse a checked procedure.</dd></div>
-          <div><dt>Workflow</dt><dd>Set up → research a trip → inspect → improve → hand off.</dd></div>
-        </dl>
       </header>
 
       <details class="exercise-reference">
@@ -77,8 +77,8 @@
             <h2 id="basics-prompt-1-title">Set the context</h2>
             <button type="button" class="button button-secondary" data-copy-target="basics-prompt-1" aria-label="Copy set the context prompt" hidden>Copy prompt</button>
           </div>
-          <p id="basics-prompt-1-note" class="prompt-note">Once your folder is open, initialize it and save lasting rules for your chosen harness, Codex or Claude Code.</p>
-          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" aria-describedby="basics-prompt-1-note" rows="6" readonly spellcheck="false">Initialize a minimal travel planner for [HARNESS] in the current folder; show its path and do not create another project folder. Add a README, project instructions, search-log.md, worklog.md and trips/, with one plan.md per trip covering the brief, accommodation, transport, activities and day-by-day itinerary. In the instructions, include a file map and rules to cite sources with lookup dates, mark uncertainty, name the trip in shared logs, leave worklogs and handoffs, and ask before accessing files outside this folder. Use my travel preferences and public sources; do not book or buy anything.</textarea>
+          <p id="basics-prompt-1-note" class="prompt-note">Once your folder is open, initialize agent instructions and save lasting rules for your travel planner.</p>
+          <textarea id="basics-prompt-1" aria-labelledby="basics-prompt-1-title" aria-describedby="basics-prompt-1-note" rows="6" readonly spellcheck="false">Initialize agent instructions for a travel planner in the current folder; show its path and do not create another project folder. Add a README, search-log.md, worklog.md and trips/, with one plan.md per trip covering the brief, accommodation, transport, activities and day-by-day itinerary. In the instructions, include a file map and rules to cite sources with lookup dates, mark uncertainty, name the trip in shared logs, leave worklogs and handoffs, and ask before accessing files outside this folder. Use my travel preferences and public sources; do not book or buy anything.</textarea>
           <aside class="checkpoint">
             <p><strong>Inspect.</strong> Check the working folder’s path, then open it in VS Code and find the instructions: <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code; check the file map and the rule about outside access.</p>
           </aside>
@@ -150,7 +150,7 @@
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-7" aria-label="Copy make a skill prompt" hidden>Copy prompt</button>
             </div>
             <p id="basics-prompt-7-note" class="prompt-note">Reuse the checked process for another trip you would like to take, such as a weekend in Vienna.</p>
-            <textarea id="basics-prompt-7" aria-labelledby="basics-prompt-7-title" aria-describedby="basics-prompt-7-note" rows="4" readonly spellcheck="false">Turn our checked trip-planning procedure into a small skill for [HARNESS]. Include the trip inputs, folder and plan structure, small research limit, source checks and log updates. Try it on [NEW_TRIP_NAME_AND_DETAILS] in its own folder under trips/, keeping the first trip unchanged. Keep the skill labelled as a draft until we have reviewed the new plan.</textarea>
+            <textarea id="basics-prompt-7" aria-labelledby="basics-prompt-7-title" aria-describedby="basics-prompt-7-note" rows="4" readonly spellcheck="false">Turn our checked trip-planning procedure into a small skill. Include the trip inputs, folder and plan structure, small research limit, source checks and log updates. Try it on [NEW_TRIP_NAME_AND_DETAILS] in its own folder under trips/, keeping the first trip unchanged. Keep the skill labelled as a draft until we have reviewed the new plan.</textarea>
             <aside class="checkpoint">
               <p><strong>Inspect.</strong> Open <code>SKILL.md</code> and the second trip’s plan; separate reusable steps from preferences that belong in the project instructions.</p>
             </aside>
@@ -161,7 +161,7 @@
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-8" aria-label="Copy test a guardrail prompt" hidden>Copy prompt</button>
             </div>
             <p id="basics-prompt-8-note" class="prompt-note">Follow a synthetic demonstration of folder protection using a fake booking confirmation rather than any real private file.</p>
-            <textarea id="basics-prompt-8" aria-labelledby="basics-prompt-8-title" aria-describedby="basics-prompt-8-note" rows="6" readonly spellcheck="false">Create a synthetic private-demo/ folder with a fake booking confirmation and ignore it in Git. Add instructions that forbid reading, searching or previewing its contents and require accidental access to be reported in bold without quoting the contents. Configure a hook for [HARNESS] and demonstrate one allowed action and one blocked read using only fake data. State which tool path was tested and what the hook does not cover.</textarea>
+            <textarea id="basics-prompt-8" aria-labelledby="basics-prompt-8-title" aria-describedby="basics-prompt-8-note" rows="6" readonly spellcheck="false">Create a synthetic private-demo/ folder with a fake booking confirmation and ignore it in Git. Add instructions that forbid reading, searching or previewing its contents and require accidental access to be reported in bold without quoting the contents. Configure a hook and demonstrate one allowed action and one blocked read using only fake data. State which tool path was tested and what the hook does not cover.</textarea>
             <aside class="checkpoint">
               <p><strong>Inspect.</strong> Check the observed block: instructions guide behaviour, <code>.gitignore</code> excludes untracked files from Git, and a trusted hook can block covered tool actions.</p>
               <p>Use only the prepared fake confirmation; keep real booking documents out of this demonstration.</p>
@@ -173,7 +173,7 @@
               <button type="button" class="button button-secondary" data-copy-target="basics-prompt-9" aria-label="Copy keep work local prompt" hidden>Copy prompt</button>
             </div>
             <p id="basics-prompt-9-note" class="prompt-note">Use global instructions for habits you want across projects, such as keeping working files in each project’s ignored .agent-work/ folder instead of temporary folders.</p>
-            <textarea id="basics-prompt-9" aria-labelledby="basics-prompt-9-title" aria-describedby="basics-prompt-9-note" rows="4" readonly spellcheck="false">Add this rule to my global instructions for [HARNESS]: [WORKSPACE_RULE]. Keep existing rules and show me where the update is saved. Explain how this differs from the instructions inside our travel-planning project.</textarea>
+            <textarea id="basics-prompt-9" aria-labelledby="basics-prompt-9-title" aria-describedby="basics-prompt-9-note" rows="4" readonly spellcheck="false">Add this rule to my global agent instructions: [WORKSPACE_RULE]. Keep existing rules and show me where the update is saved. Explain how this differs from the instructions inside our travel-planning project.</textarea>
             <aside class="checkpoint">
               <p><strong>Compare.</strong> Find the global and project instruction files; decide which preferences belong everywhere and which belong only to this project.</p>
             </aside>
